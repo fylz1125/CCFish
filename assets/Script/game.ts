@@ -13,13 +13,18 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class NewClass extends cc.Component {
 
-    @property(cc.Label)
-    label: cc.Label = null;
-
-    @property
-    text: string = 'hello';
+    @property(cc.Prefab)
+    fishPrefab: cc.Prefab = null;
 
     // LIFE-CYCLE CALLBACKS:
+
+    onLoad () {
+        let fish = cc.instantiate(this.fishPrefab);
+        fish.setPosition(cc.p(100,100));
+        this.node.addChild(fish);
+        
+
+    }
 
     start () {
 
