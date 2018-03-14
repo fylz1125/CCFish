@@ -1,11 +1,11 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "fish_red",
+  "_name": "fish_red_run",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 0.9333333333333333,
-  "sample": 60,
-  "speed": 1.5,
+  "_duration": 0.8,
+  "sample": 5,
+  "speed": 1,
   "wrapMode": 2,
   "curveData": {
     "comps": {
@@ -14,30 +14,31 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "25ac6603-3a7e-4e9e-baa7-389317706e20"
+              "__uuid__": "b013e68c-fd71-4e73-8c22-dbaab04ed48e"
             }
           },
           {
-            "frame": 0.3333333333333333,
+            "frame": 0.2,
             "value": {
-              "__uuid__": "c144d3a5-97a9-45a9-904a-d5fdf3e147e4"
+              "__uuid__": "b4861769-da47-42af-a742-bc31834264e7"
             }
           },
           {
-            "frame": 0.6666666666666666,
+            "frame": 0.4,
             "value": {
-              "__uuid__": "9bb46016-a893-4602-87e4-266f2277b881"
+              "__uuid__": "b4861769-da47-42af-a742-bc31834264e7"
             }
           },
           {
-            "frame": 0.9166666666666666,
+            "frame": 0.6,
             "value": {
-              "__uuid__": "16b2dfb1-a14b-4b96-8193-0dc673052953"
+              "__uuid__": "2b8bbcf9-132b-4b9c-81a0-1474bbade343"
             }
           }
         ]
       }
-    }
+    },
+    "props": {}
   },
   "events": []
 }

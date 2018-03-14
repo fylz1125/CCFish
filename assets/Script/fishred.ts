@@ -20,12 +20,14 @@ export default class NewClass extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     start () {
-
     }
 
     onLoad () {
-        this.anim.play('fish_denglong');
+        this.anim.play('fish_red_run');
     }
 
+    die () {
+        this.anim.play('fish_red_die');
+    }
     // update (dt) {},
 }
