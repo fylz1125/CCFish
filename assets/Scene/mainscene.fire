@@ -67,6 +67,9 @@
     "_components": [
       {
         "__id__": 8
+      },
+      {
+        "__id__": 9
       }
     ],
     "_prefab": null,
@@ -308,5 +311,17 @@
     },
     "_fitWidth": false,
     "_fitHeight": true
+  },
+  {
+    "__type__": "98d53mTHSRP6bhQlHaezm0y",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "fishPrefab": {
+      "__uuid__": "a2f88b52-8557-4f10-9346-03e616499968"
+    }
   }
 ]

@@ -112,7 +112,7 @@
     "playOnLoad": false
   },
   {
-    "__type__": "78b8cJwn5FOOKeXN1LRr/i7",
+    "__type__": "fa480IYfvFBlIziztExfuwP",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -122,7 +122,7 @@
     "anim": {
       "__id__": 3
     },
-    "HP": 100,
+    "hp": 100,
     "defence": 0
   },
   {
@@ -131,7 +131,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "a2f88b52-8557-4f10-9346-03e616499968"
     },
     "fileId": "5aRVxWmydBYKwlyw/CNsOf",
     "sync": false
