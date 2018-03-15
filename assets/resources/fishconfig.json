@@ -1,0 +1,12 @@
+[
+    {
+        "type":"fish_red",
+        "hp":10,
+        "defence":0
+    },
+    {
+        "type":"fish_denglong",
+        "hp":20,
+        "defence":1
+    }
+]

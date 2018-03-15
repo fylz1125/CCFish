@@ -22,7 +22,14 @@ export default class NewClass extends cc.Component {
         let fish = cc.instantiate(this.fishPrefab);
         fish.setPosition(cc.p(100,100));
         this.node.addChild(fish);
-        
+        cc.loader.loadRes("fishconfig",function(err, data){
+            if(err){
+                cc.error(err.message || err);
+                return;
+            }
+            cc.log('load json '+ data.length);
+            
+        });
 
     }
 
