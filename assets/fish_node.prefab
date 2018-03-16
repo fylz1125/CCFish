@@ -130,7 +130,8 @@
       "__id__": 3
     },
     "hp": 100,
-    "defence": 0
+    "defence": 0,
+    "velocity": 30
   },
   {
     "__type__": "cc.PrefabInfo",

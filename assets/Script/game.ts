@@ -4,21 +4,16 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
-
     fishPool: cc.NodePool;
-    fishTypes: FishType[];
+    fishTypes: any;
 
     @property(cc.Prefab)
     fishPrefab: cc.Prefab = null;
-
-
-    // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
         // let fish = cc.instantiate(this.fishPrefab);
         // fish.setPosition(cc.p(100, 100));
         // this.node.addChild(fish);
-        let cnode: cc.Node = this.node;
         this.fishPool = new cc.NodePool(Fish);
         let self = this;
 
@@ -30,25 +25,37 @@ export default class NewClass extends cc.Component {
             }
             // 加载之后转类型
             self.fishTypes = <FishType[]>data;
-           self.initFish();
+        //    self.initFish();
         });
+
+        this.schedule(this.creatFish, 1);
 
     }
 
     initFish() {
         var self = this;
-        if (this.fishTypes.length > 0) {
-            this.fishTypes.forEach(value => {
-                let fish = cc.instantiate(self.fishPrefab);
-                let runstring = value.name + '_run';
-                cc.log('... ' + runstring);
-                let fish_x = cc.randomMinus1To1() * self.node.width / 2;
-                let fish_y = cc.randomMinus1To1() * self.node.height / 2;
-                fish.setPosition(fish_x, fish_y);
-                fish.getComponent(Fish).run(value.name + '_run');
-                self.node.addChild(fish);
-            });
-        }
+        // if (this.fishTypes.length > 0) {
+        //     this.fishTypes.forEach(value => {
+        //         let fish = cc.instantiate(self.fishPrefab);
+        //         let runstring = value.name + '_run';
+        //         let fish_x = cc.randomMinus1To1() * self.node.width / 2;
+        //         let fish_y = cc.randomMinus1To1() * self.node.height / 2;
+        //         fish.setPosition(fish_x, fish_y);
+        //         self.node.addChild(fish);
+        //         fish.getComponent(Fish).initFish(value.name + '_run');
+
+        //     });
+        // }
+        let fish = cc.instantiate(self.fishPrefab);
+        fish.getComponent(Fish).initFish();
+
+
+    }
+
+    creatFish() {
+        var self = this;
+        let fish = cc.instantiate(self.fishPrefab);
+        fish.getComponent(Fish).initFish();
     }
 
     start() {
