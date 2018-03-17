@@ -33,7 +33,6 @@ export default class Fish extends cc.Component {
         let firstp = cc.p(100, -600);
         let k = Math.atan((firstp.y - this.node.y) / (firstp.x - this.node.x));
         this.node.rotation = -k * 180 / 3.1415926;
-        cc.log('init rotation ' + this.node.rotation);
         this.anim.play('fish_red.run');
         this.node.parent = cc.director.getScene();
         this.lastPosition = this.node.getPosition();
