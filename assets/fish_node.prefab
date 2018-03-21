@@ -74,9 +74,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "b013e68c-fd71-4e73-8c22-dbaab04ed48e"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -90,9 +88,7 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_atlas": {
-      "__uuid__": "ef7d8684-1ff2-4a01-9b69-3291ab1053c2"
-    }
+    "_atlas": null
   },
   {
     "__type__": "cc.Animation",

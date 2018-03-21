@@ -1,12 +1,12 @@
 [
     {
-        "name":"fish_red",
-        "hp":10,
-        "defence":0
+        "name": "fish_red",
+        "hp": 10,
+        "defence": 0
     },
     {
-        "name":"fish_denglong",
-        "hp":20,
-        "defence":1
+        "name": "fish_denglong",
+        "hp": 20,
+        "defence": 1
     }
 ]

@@ -32,6 +32,9 @@ export default class NewClass extends cc.Component {
         });
 
         this.schedule(this.creatFish, 1);
+
+
+        // 添加触摸事件
         this.node.on(cc.Node.EventType.TOUCH_START, function (event: cc.Event.EventTouch) { 
             //需要将触点坐标转换成局部坐标，跟炮台一致
             let touchPos =  self.node.convertTouchToNodeSpaceAR(event.touch);
@@ -39,6 +42,7 @@ export default class NewClass extends cc.Component {
             let radian = Math.atan((touchPos.x - weaponPos.x) / (touchPos.y - weaponPos.y));
             let degree = radian * 180 / 3.1415926;
             self.weaponNode.rotation = degree;
+
         }, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
             // cc.log('touch move');
@@ -49,8 +53,9 @@ export default class NewClass extends cc.Component {
 
     }
 
-    touchCallback(event: cc.Event.EventTouch) {
-        cc.log('touch is --' + event.touch);
+    cannonPlus() {
+        let anim = this.weaponNode.getComponent(cc.Animation);
+        anim.play('weapon_level1');
     }
 
     initFish() {
