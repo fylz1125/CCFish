@@ -13,6 +13,8 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     weaponNode: cc.Node = null;    
 
+    oneFish: any;
+
     onLoad() {
         // let fish = cc.instantiate(this.fishPrefab);
         // fish.setPosition(cc.p(100, 100));
@@ -28,7 +30,8 @@ export default class NewClass extends cc.Component {
             }
             // 加载之后转类型
             self.fishTypes = <FishType[]>data;
-            self.schedule(self.creatFish, 2);
+            // self.schedule(self.creatFish, 2);
+            self.creatFish();
         });
 
         // this.schedule(this.creatFish, 1);
@@ -60,6 +63,11 @@ export default class NewClass extends cc.Component {
         anim.play('weapon_level1');
     }
 
+    castNet() {
+        cc.log('cast net');
+        this.oneFish.getComponent(Fish).castNet();
+    }
+
     initFish() {
         var self = this;
         // if (this.fishTypes.length > 0) {
@@ -74,19 +82,19 @@ export default class NewClass extends cc.Component {
 
         //     });
         // }
-        let fish = cc.instantiate(self.fishPrefab);
+        // let fish = cc.instantiate(self.fishPrefab);
         // fish.getComponent(Fish).initFish();
 
 
     }
-
+    // let fish;
     creatFish() {
         let self = this;
         let fishStr = this.fishTypes.length;
-        let fish = cc.instantiate(self.fishPrefab);
+        self.oneFish = cc.instantiate(self.fishPrefab);
         let randomFish = Math.floor(cc.random0To1() * fishStr);
         cc.log('random :' + randomFish);
-        fish.getComponent(Fish).initFish(this.fishTypes[randomFish]);
+        self.oneFish.getComponent(Fish).initFish(this.fishTypes[randomFish]);
     }
 
     start() {

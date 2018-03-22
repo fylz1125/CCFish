@@ -48,6 +48,10 @@ export default class Fish extends cc.Component {
         this.node.runAction(bezerby);
     }
 
+    castNet() {
+        this.anim.play('net_cast_1');
+    }
+
     onLoad() {
         // this.enabled = false;
     }

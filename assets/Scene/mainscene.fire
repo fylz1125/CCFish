@@ -541,8 +541,8 @@
     "target": {
       "__id__": 2
     },
-    "component": "game",
-    "handler": "cannonPlus",
+    "component": "Game",
+    "handler": "castNet",
     "customEventData": ""
   },
   {
