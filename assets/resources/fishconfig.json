@@ -8,5 +8,50 @@
         "name": "fish_denglong",
         "hp": 20,
         "defence": 1
+    },
+    {
+        "name": "fish_yellow",
+        "hp": 20,
+        "defence": 1
+    },
+    {
+        "name": "fish_bigred",
+        "hp": 15,
+        "defence": 1
+    },
+    {
+        "name": "fish_fuyi",
+        "hp": 30,
+        "defence": 1
+    },
+    {
+        "name": "fish_gui",
+        "hp": 40,
+        "defence": 1
+    },
+    {
+        "name": "fish_hailuoshuimu",
+        "hp": 50,
+        "defence": 1
+    },
+    {
+        "name": "fish_hetun",
+        "hp": 30,
+        "defence": 1
+    },
+    {
+        "name": "fish_jinshayu",
+        "hp": 60,
+        "defence": 1
+    },
+    {
+        "name": "fish_shayu",
+        "hp": 55,
+        "defence": 1
+    },
+    {
+        "name": "fish_shuimu",
+        "hp": 40,
+        "defence": 1
     }
 ]
