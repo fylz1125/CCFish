@@ -30,8 +30,9 @@ export default class Fish extends cc.Component {
 
     initFish() {
         this.node.position = cc.p(cc.random0To1() * 100, 600);
+        // 贝塞尔曲线第一个控制点，用来计算初始角度
         let firstp = cc.p(100, -600);
-        let k = Math.atan((firstp.y - this.node.y) / (firstp.x - this.node.x));
+        let k = Math.atan((firstp.y ) / (firstp.x));
         this.node.rotation = -k * 180 / 3.1415926;
         this.anim.play('fish_red.run');
         this.node.parent = cc.director.getScene();
@@ -43,11 +44,12 @@ export default class Fish extends cc.Component {
     swimming() {
         let windowSize = cc.director.getWinSize();
         var bezier = [cc.p(100, -600), cc.p(700, -100), cc.p(500, 900)];
-        let bezerby = cc.bezierBy(8, bezier);
+        let bezerby = cc.bezierBy(10, bezier);
         this.node.runAction(bezerby);
     }
 
     onLoad() {
+        // this.enabled = false;
     }
 
     die() {
@@ -60,8 +62,8 @@ export default class Fish extends cc.Component {
     // 更新鱼的角度
     updateDegree() {
         let currentPos = this.node.getPosition();
-        // 动画结束之后位置不变
-        if (currentPos.equals(this.lastPosition)) {
+        // 如果位移不超过1，不改变角度
+        if (cc.pDistance(this.lastPosition, currentPos)<1) {
             return;
         }
         // 计算角度
