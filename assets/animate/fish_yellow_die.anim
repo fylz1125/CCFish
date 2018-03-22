@@ -1,9 +1,43 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "",
+  "_name": "fish_yellow_die",
   "_objFlags": 0,
-  "_duration": 0,
-  "sample": 60,
-  "curveData": {},
+  "_rawFiles": null,
+  "_duration": 0.8,
+  "sample": 5,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "c5e5856f-0015-4060-8388-a1b035371f9b"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "a127358b-7c77-4ca9-8c9f-6d5318961079"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "849190fe-c4f3-4071-9ff2-f028eccc6fd1"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "5400c248-8d8b-4118-948f-81e2ec367c7e"
+            }
+          }
+        ]
+      }
+    }
+  },
   "events": []
 }

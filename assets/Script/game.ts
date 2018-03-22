@@ -28,10 +28,11 @@ export default class NewClass extends cc.Component {
             }
             // 加载之后转类型
             self.fishTypes = <FishType[]>data;
-            //    self.initFish();
+            self.schedule(self.creatFish, 2);
         });
 
-        this.schedule(this.creatFish, 1);
+        // this.schedule(this.creatFish, 1);
+        
 
 
         // 添加触摸事件
@@ -74,15 +75,18 @@ export default class NewClass extends cc.Component {
         //     });
         // }
         let fish = cc.instantiate(self.fishPrefab);
-        fish.getComponent(Fish).initFish();
+        // fish.getComponent(Fish).initFish();
 
 
     }
 
     creatFish() {
-        var self = this;
+        let self = this;
+        let fishStr = this.fishTypes.length;
         let fish = cc.instantiate(self.fishPrefab);
-        fish.getComponent(Fish).initFish();
+        let randomFish = Math.floor(cc.random0To1() * fishStr);
+        cc.log('random :' + randomFish);
+        fish.getComponent(Fish).initFish(this.fishTypes[randomFish]);
     }
 
     start() {

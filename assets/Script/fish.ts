@@ -28,13 +28,13 @@ export default class Fish extends cc.Component {
     // 保存上一次坐标,用于更新角度
     lastPosition: cc.Vec2;
 
-    initFish() {
-        this.node.position = cc.p(cc.random0To1() * 100, 600);
+    initFish(fishType:FishType) {
+        this.node.position = cc.p(cc.random0To1() * 100, 700);
         // 贝塞尔曲线第一个控制点，用来计算初始角度
-        let firstp = cc.p(100, -600);
+        let firstp = cc.p(100, -200);
         let k = Math.atan((firstp.y ) / (firstp.x));
         this.node.rotation = -k * 180 / 3.1415926;
-        this.anim.play('fish_red.run');
+        this.anim.play(fishType.name+'_run');
         this.node.parent = cc.director.getScene();
         this.lastPosition = this.node.getPosition();
         this.swimming();
@@ -43,7 +43,7 @@ export default class Fish extends cc.Component {
     // 小鱼游泳，贝塞尔曲线实现
     swimming() {
         let windowSize = cc.director.getWinSize();
-        var bezier = [cc.p(100, -600), cc.p(700, -100), cc.p(500, 900)];
+        var bezier = [cc.p(100, -200), cc.p(400, -500), cc.p(1000, -500)];
         let bezerby = cc.bezierBy(10, bezier);
         this.node.runAction(bezerby);
     }
