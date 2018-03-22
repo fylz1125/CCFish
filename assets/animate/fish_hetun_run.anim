@@ -1,12 +1,12 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "fish_red_die",
+  "_name": "fish_hetun_run",
   "_objFlags": 0,
   "_rawFiles": null,
   "_duration": 0.8,
   "sample": 5,
   "speed": 1,
-  "wrapMode": 1,
+  "wrapMode": 2,
   "curveData": {
     "comps": {
       "cc.Sprite": {
@@ -14,25 +14,25 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "bda0ef09-db4d-4228-ac65-c7b3297163bc"
+              "__uuid__": "d2c3a687-a636-4a0a-89df-d3b7e5955f5b"
             }
           },
           {
             "frame": 0.2,
             "value": {
-              "__uuid__": "2a053610-65c1-4cb7-b86e-0775eceea601"
+              "__uuid__": "7164f049-b7d6-478d-998f-50d717232a71"
             }
           },
           {
             "frame": 0.4,
             "value": {
-              "__uuid__": "b23ee855-4052-4dbb-a70d-26ae11060370"
+              "__uuid__": "572dc32c-4434-4835-98b0-88f7ffa5dc90"
             }
           },
           {
             "frame": 0.6,
             "value": {
-              "__uuid__": "1c4b1f77-a56b-4b8e-8768-fe614ca7795b"
+              "__uuid__": "17abdf57-fe91-42bd-9ca5-8effe2f19648"
             }
           }
         ]

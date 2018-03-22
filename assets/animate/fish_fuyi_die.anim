@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "fish_red_die",
+  "_name": "fish_fuyi_die",
   "_objFlags": 0,
   "_rawFiles": null,
   "_duration": 0.8,
@@ -14,25 +14,25 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "bda0ef09-db4d-4228-ac65-c7b3297163bc"
+              "__uuid__": "9292c58e-45ca-4938-ac17-8088f8ef2d17"
             }
           },
           {
             "frame": 0.2,
             "value": {
-              "__uuid__": "2a053610-65c1-4cb7-b86e-0775eceea601"
+              "__uuid__": "491b8a0a-4d70-4997-96d4-e7982d0e1a63"
             }
           },
           {
             "frame": 0.4,
             "value": {
-              "__uuid__": "b23ee855-4052-4dbb-a70d-26ae11060370"
+              "__uuid__": "c37f6938-70ca-43d7-b627-468f3c3d97a1"
             }
           },
           {
             "frame": 0.6,
             "value": {
-              "__uuid__": "1c4b1f77-a56b-4b8e-8768-fe614ca7795b"
+              "__uuid__": "42bbc18a-0c68-4256-86c0-2fb447967da1"
             }
           }
         ]

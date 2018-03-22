@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "fish_red_die",
+  "_name": "fish_denglong_die",
   "_objFlags": 0,
   "_rawFiles": null,
   "_duration": 0.8,
@@ -14,25 +14,25 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "bda0ef09-db4d-4228-ac65-c7b3297163bc"
+              "__uuid__": "cef0d325-c2d1-494b-98dd-6122288a1da3"
             }
           },
           {
             "frame": 0.2,
             "value": {
-              "__uuid__": "2a053610-65c1-4cb7-b86e-0775eceea601"
+              "__uuid__": "26e6fa3f-7118-4ae6-bfe7-ab5ee5508cf5"
             }
           },
           {
             "frame": 0.4,
             "value": {
-              "__uuid__": "b23ee855-4052-4dbb-a70d-26ae11060370"
+              "__uuid__": "c2a96c29-680e-4b2d-bedd-10210919a6c1"
             }
           },
           {
             "frame": 0.6,
             "value": {
-              "__uuid__": "1c4b1f77-a56b-4b8e-8768-fe614ca7795b"
+              "__uuid__": "a6c9935c-ec1b-428a-b2cc-ce83b3a98b49"
             }
           }
         ]

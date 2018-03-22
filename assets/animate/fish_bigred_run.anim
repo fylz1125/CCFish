@@ -1,12 +1,12 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "fish_red_die",
+  "_name": "fish_bigred_run",
   "_objFlags": 0,
   "_rawFiles": null,
   "_duration": 0.8,
   "sample": 5,
   "speed": 1,
-  "wrapMode": 1,
+  "wrapMode": 2,
   "curveData": {
     "comps": {
       "cc.Sprite": {
@@ -14,25 +14,25 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "bda0ef09-db4d-4228-ac65-c7b3297163bc"
+              "__uuid__": "048a219b-da01-4684-8b54-aa1653c502b3"
             }
           },
           {
             "frame": 0.2,
             "value": {
-              "__uuid__": "2a053610-65c1-4cb7-b86e-0775eceea601"
+              "__uuid__": "7f2109fa-9a0f-41bc-89fe-7ecada6ffb46"
             }
           },
           {
             "frame": 0.4,
             "value": {
-              "__uuid__": "b23ee855-4052-4dbb-a70d-26ae11060370"
+              "__uuid__": "74da5f94-89c9-4ad1-9d35-d187db055157"
             }
           },
           {
             "frame": 0.6,
             "value": {
-              "__uuid__": "1c4b1f77-a56b-4b8e-8768-fe614ca7795b"
+              "__uuid__": "eaf95c36-27f6-4dd1-8d38-8efec9177ed2"
             }
           }
         ]

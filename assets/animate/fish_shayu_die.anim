@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "fish_red_die",
+  "_name": "fish_shayu_die",
   "_objFlags": 0,
   "_rawFiles": null,
   "_duration": 0.8,
@@ -14,25 +14,25 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "bda0ef09-db4d-4228-ac65-c7b3297163bc"
+              "__uuid__": "25501932-13d9-4350-8092-03d40ceb1f4a"
             }
           },
           {
             "frame": 0.2,
             "value": {
-              "__uuid__": "2a053610-65c1-4cb7-b86e-0775eceea601"
+              "__uuid__": "fe7528b1-e993-4d58-b738-a1554922de5e"
             }
           },
           {
             "frame": 0.4,
             "value": {
-              "__uuid__": "b23ee855-4052-4dbb-a70d-26ae11060370"
+              "__uuid__": "1b2a844b-1d1f-4e9e-8332-ae9c394b990e"
             }
           },
           {
             "frame": 0.6,
             "value": {
-              "__uuid__": "1c4b1f77-a56b-4b8e-8768-fe614ca7795b"
+              "__uuid__": "8539a433-6e37-4e72-8ee8-25199c989f05"
             }
           }
         ]

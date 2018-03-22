@@ -1,6 +1,6 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "fish_red_die",
+  "_name": "fish_gui_die",
   "_objFlags": 0,
   "_rawFiles": null,
   "_duration": 0.8,
@@ -14,25 +14,25 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "bda0ef09-db4d-4228-ac65-c7b3297163bc"
+              "__uuid__": "6e299c95-2a3d-4dd3-9325-b2ed01cdf301"
             }
           },
           {
             "frame": 0.2,
             "value": {
-              "__uuid__": "2a053610-65c1-4cb7-b86e-0775eceea601"
+              "__uuid__": "59c940d6-5384-4f29-ad18-11cda8fc43aa"
             }
           },
           {
             "frame": 0.4,
             "value": {
-              "__uuid__": "b23ee855-4052-4dbb-a70d-26ae11060370"
+              "__uuid__": "43cb34c2-e40e-48a8-97e7-2ceeeb4a42eb"
             }
           },
           {
             "frame": 0.6,
             "value": {
-              "__uuid__": "1c4b1f77-a56b-4b8e-8768-fe614ca7795b"
+              "__uuid__": "656fc88c-21df-4d04-98f3-fbdc764025fb"
             }
           }
         ]
