@@ -37,8 +37,9 @@ export default class NewClass extends cc.Component {
         // 添加触摸事件
         this.node.on(cc.Node.EventType.TOUCH_START, function (event: cc.Event.EventTouch) { 
             //需要将触点坐标转换成局部坐标，跟炮台一致
-            let touchPos =  self.node.convertTouchToNodeSpaceAR(event.touch);
+            let touchPos = self.weaponNode.parent.convertTouchToNodeSpaceAR(event.touch);
             let weaponPos = self.weaponNode.getPosition();
+            if (touchPos.y < weaponPos.y) return;
             let radian = Math.atan((touchPos.x - weaponPos.x) / (touchPos.y - weaponPos.y));
             let degree = radian * 180 / 3.1415926;
             self.weaponNode.rotation = degree;
