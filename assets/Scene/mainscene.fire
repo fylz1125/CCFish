@@ -1386,6 +1386,9 @@
     },
     "weaponNode": {
       "__id__": 6
+    },
+    "bulletPrefab": {
+      "__uuid__": "124733b0-c72d-4ddb-ac93-6013a1069762"
     }
   }
 ]
