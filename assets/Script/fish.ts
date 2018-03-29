@@ -23,6 +23,9 @@ export default class Fish extends cc.Component {
     @property
     velocity: number = 30;
 
+    @property(cc.SpriteAtlas)
+    fishAtlas: cc.SpriteAtlas = null;
+
     // fish state 鱼的生命状态，默认都是活的
     fishState: FishState = FishState.alive;
 
@@ -42,24 +45,31 @@ export default class Fish extends cc.Component {
     spawnFish(game: Game) {
         let fishStr = game.fishTypes.length;
         let randomFish = Math.floor(cc.random0To1() * fishStr);
-        cc.log('random :' + randomFish);
+        // cc.log('random :' + randomFish);
         let fishType = game.fishTypes[randomFish];
         this.node.position = cc.p(cc.random0To1() * 100, 700);
         // 贝塞尔曲线第一个控制点，用来计算初始角度
         let firstp = cc.p(100, -200);
         let k = Math.atan((firstp.y) / (firstp.x));
         this.node.rotation = -k * 180 / 3.14;
+        this.node.getComponent(cc.Sprite).spriteFrame = this.fishAtlas.getSpriteFrame(fishType.name + '_run_0');
         this.anim.play(fishType.name + '_run');
         this.node.parent = cc.director.getScene();
         this.lastPosition = this.node.getPosition();
+        this.changeCollider();
         this.swimming();
+    }
+
+    changeCollider() {
+        let collider = this.node.getComponent(cc.BoxCollider);
+        collider.size = this.node.getContentSize();
     }
 
     // 小鱼游泳，贝塞尔曲线实现
     swimming() {
         let windowSize = cc.director.getWinSize();
         var bezier = [cc.p(100, -200), cc.p(400, -500), cc.p(1500, -600)];
-        let bezerby = cc.bezierBy(10, bezier);
+        let bezerby = cc.bezierBy(20, bezier);
         this.node.runAction(bezerby);
     }
 
@@ -68,7 +78,6 @@ export default class Fish extends cc.Component {
     }
 
     onLoad() {
-        // this.enabled = false;
     }
 
     update(dt) {
@@ -109,7 +118,9 @@ export default class Fish extends cc.Component {
                 || this.node.y > 900
                 || this.node.y < 0
             ) {
-                this.node.removeFromParent();
+                // this.node.removeFromParent();
+                // 可以不移除节点，停止所有动作也可以完成
+                this.node.stopAllActions();
                 this.game.despawnFish(this.node);
             }
         }
@@ -118,5 +129,8 @@ export default class Fish extends cc.Component {
     // 碰撞检测，鱼被打死的逻辑
     die(): boolean {
         return false;
+    }
+
+    onCollisionEnter(othe, self) {
     }
 }

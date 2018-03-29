@@ -3,7 +3,6 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class Bullet extends cc.Component {
-    // onLoad () {}
     // 子弹初始角度
     angle: number = 0;
 
@@ -46,7 +45,12 @@ export default class Bullet extends cc.Component {
             // cc.log('bullet x ' + this.node.x);
         }
     }
-    onDestroy() {
-        cc.log('destroy bullet');
+    onCollisionEnter(other, self) {
+        // 矩形碰撞组件顶点坐标，左上，左下，右下，右上
+        let posb = self.world.points;
+        // 取左上和右上坐标计算中点当做碰撞中点
+        let posNet = cc.pMidpoint(posb[0], posb[3]);
+        this.game.castNet(posNet);
+        this.game.despawnBullet(this.node);
     }
 }

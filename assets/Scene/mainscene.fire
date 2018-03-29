@@ -1389,6 +1389,9 @@
     },
     "bulletPrefab": {
       "__uuid__": "124733b0-c72d-4ddb-ac93-6013a1069762"
+    },
+    "netPrefab": {
+      "__uuid__": "82dfd553-ef79-44b8-8061-71a0b0b14784"
     }
   }
 ]

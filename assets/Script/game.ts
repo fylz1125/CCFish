@@ -1,6 +1,7 @@
 import { FishState, FishType } from './FishType';
 import Fish from './Fish';
 import Bullet from './Bullet';
+import Net from './Net';
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -18,15 +19,27 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     bulletPrefab: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    netPrefab: cc.Prefab = null;
+
     oneFish: cc.Node;
     oneBullet: cc.Node;
+    oneNet: cc.Node;
 
     //子弹对象池
     bulletPool: cc.NodePool;
+    netsPool: cc.NodePool;
 
     onLoad() {
+        let manager = cc.director.getCollisionManager();
+        manager.enabled = true;
+        manager.enabledDebugDraw = true;
+        // manager.enabledDrawBoundingBox = true;
+
         this.bulletPool = new cc.NodePool(Bullet);
         this.fishPool = new cc.NodePool(Fish);
+        this.netsPool = new cc.NodePool();
+
         let self = this;
         cc.director.setDisplayStats(true);
         // 动态加载json配置文件
@@ -37,7 +50,7 @@ export default class NewClass extends cc.Component {
             }
             // 加载之后转类型
             self.fishTypes = <FishType[]>data;
-            self.schedule(self.creatFish, 2);
+            self.schedule(self.creatFish, 5);
         });
 
 
@@ -68,10 +81,10 @@ export default class NewClass extends cc.Component {
         anim.play('weapon_level1');
     }
 
-    castNet() {
-        cc.log('cast net');
-        this.oneFish.getComponent(Fish).castNet();
-    }
+    // castNet() {
+    //     cc.log('cast net');
+    //     this.oneFish.getComponent(Fish).castNet();
+    // }
 
     shot() {
         if (this.bulletPool.size() > 0) {
@@ -113,14 +126,26 @@ export default class NewClass extends cc.Component {
         this.oneFish.getComponent(Fish).init(this);
     }
 
+    castNet(position:cc.Vec2) {
+        if (this.netsPool.size() > 0) {
+            this.oneNet = this.netsPool.get(this);
+        } else {
+            this.oneNet = cc.instantiate(this.netPrefab);
+        }
+        this.oneNet.getComponent(Net).init(position,this);
+    }
+
     despawnFish(fish: cc.Node) {
         this.fishPool.put(fish);
-        cc.log('put fish ----');
     }
 
     despawnBullet(bullet:cc.Node) {
         this.bulletPool.put(bullet);
-        cc.log('put bullet -----');
+    }
+
+    despawnNet(net: cc.Node) {
+        cc.log('game despawn');
+        this.netsPool.put(net);
     }
 
     // update (dt) {},
