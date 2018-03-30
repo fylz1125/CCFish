@@ -1,0 +1,151 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "coin_up",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.3,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "position": [],
+      "opacity": []
+    },
+    "paths": {
+      "goldnum_9": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -30,
+                0
+              ]
+            },
+            {
+              "frame": 0.1,
+              "value": [
+                -30,
+                30
+              ]
+            },
+            {
+              "frame": 0.2,
+              "value": [
+                -30,
+                60
+              ]
+            },
+            {
+              "frame": 0.3,
+              "value": [
+                -30,
+                80
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 255
+            },
+            {
+              "frame": 0.3,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "goldnum_1": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                0
+              ]
+            },
+            {
+              "frame": 0.1,
+              "value": [
+                0,
+                30
+              ]
+            },
+            {
+              "frame": 0.2,
+              "value": [
+                0,
+                60
+              ]
+            },
+            {
+              "frame": 0.3,
+              "value": [
+                0,
+                80
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 255
+            },
+            {
+              "frame": 0.3,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "goldnum_0": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                30,
+                0
+              ]
+            },
+            {
+              "frame": 0.1,
+              "value": [
+                30,
+                30
+              ]
+            },
+            {
+              "frame": 0.2,
+              "value": [
+                30,
+                60
+              ]
+            },
+            {
+              "frame": 0.3,
+              "value": [
+                30,
+                80
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 255
+            },
+            {
+              "frame": 0.3,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
