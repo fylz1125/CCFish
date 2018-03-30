@@ -1,5 +1,6 @@
 import { FishState, FishType } from './FishType';
 import Game from './Game';
+import Bullet from './Bullet';
 const { ccclass, property } = cc._decorator;
 
 
@@ -32,6 +33,8 @@ export default class Fish extends cc.Component {
     // 保存上一次坐标,用于更新角度
     lastPosition: cc.Vec2;
 
+    fishType: FishType;
+
     //暂存game实例
     game: Game;
 
@@ -46,20 +49,24 @@ export default class Fish extends cc.Component {
         let fishStr = game.fishTypes.length;
         let randomFish = Math.floor(cc.random0To1() * fishStr);
         // cc.log('random :' + randomFish);
-        let fishType = game.fishTypes[randomFish];
+        this.fishType = game.fishTypes[randomFish];
         this.node.position = cc.p(cc.random0To1() * 100, 700);
         // 贝塞尔曲线第一个控制点，用来计算初始角度
         let firstp = cc.p(100, -200);
         let k = Math.atan((firstp.y) / (firstp.x));
         this.node.rotation = -k * 180 / 3.14;
-        this.node.getComponent(cc.Sprite).spriteFrame = this.fishAtlas.getSpriteFrame(fishType.name + '_run_0');
-        this.anim.play(fishType.name + '_run');
+        this.node.getComponent(cc.Sprite).spriteFrame = this.fishAtlas.getSpriteFrame(this.fishType.name + '_run_0');
+        // 取出鱼的血量
+        this.hp = this.fishType.hp;
+        this.fishState = FishState.alive;
+        this.anim.play(this.fishType.name + '_run');
         this.node.parent = cc.director.getScene();
         this.lastPosition = this.node.getPosition();
         this.changeCollider();
         this.swimming();
     }
 
+    // 重新设置碰撞区域
     changeCollider() {
         let collider = this.node.getComponent(cc.BoxCollider);
         collider.size = this.node.getContentSize();
@@ -69,12 +76,8 @@ export default class Fish extends cc.Component {
     swimming() {
         let windowSize = cc.director.getWinSize();
         var bezier = [cc.p(100, -200), cc.p(400, -500), cc.p(1500, -600)];
-        let bezerby = cc.bezierBy(20, bezier);
+        let bezerby = cc.bezierBy(10, bezier);
         this.node.runAction(bezerby);
-    }
-
-    castNet() {
-        this.anim.playAdditive('net_cast_1');
     }
 
     onLoad() {
@@ -106,31 +109,60 @@ export default class Fish extends cc.Component {
         }
         this.node.rotation = degree;
         this.lastPosition = currentPos;
-        this.despawnFish();
+        // this.despawnFish();
+        this.beAttack();
+
+    }
+
+    beAttack() {
+        if (this.isDie()) {
+            // 停止贝塞尔曲线动作
+            this.node.pauseAllActions();
+            //播放死亡动画
+            let animState = this.anim.play(this.fishType.name + '_die');
+            // 被打死的动画播放完成之后回调
+            animState.on('stop', this.dieCallback, this);
+            // 播放金币动画
+            this.game.gainCoins(this.node.position,3);
+        } else {
+            // 跑出屏幕的鱼自动回收
+            this.despawnFish();
+        }
+    }
+
+    dieCallback() {
+        // 死亡动画播放完回收鱼
+        this.node.stopAllActions();
+        this.game.despawnFish(this.node);
     }
 
     despawnFish() {
-        if (this.die()) {
+        if (this.node.x > 1300
+            || this.node.x < -100
+            || this.node.y > 900
+            || this.node.y < 0
+        ) {
+            // this.node.removeFromParent();
+            // 可以不移除节点，停止所有动作也可以完成
+            this.node.stopAllActions();
             this.game.despawnFish(this.node);
-        } else {
-            if (this.node.x > 1300
-                || this.node.x < -100
-                || this.node.y > 900
-                || this.node.y < 0
-            ) {
-                // this.node.removeFromParent();
-                // 可以不移除节点，停止所有动作也可以完成
-                this.node.stopAllActions();
-                this.game.despawnFish(this.node);
-            }
         }
     }
 
     // 碰撞检测，鱼被打死的逻辑
-    die(): boolean {
+    isDie(): boolean {
+        if (this.fishState == FishState.dead) {
+            return true;
+        }
         return false;
     }
 
-    onCollisionEnter(othe, self) {
+    onCollisionEnter(other, self) {
+        let bullet = <Bullet>other.node.getComponent(Bullet);
+        this.hp -= bullet.attack;
+        if (this.hp <= 0) {
+            this.fishState = FishState.dead;
+        }
+        
     }
 }

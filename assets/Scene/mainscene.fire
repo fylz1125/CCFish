@@ -1678,7 +1678,7 @@
         "__uuid__": "c3a4c72f-662a-45a1-a781-6b2bc29f55f7"
       }
     ],
-    "playOnLoad": false
+    "playOnLoad": true
   },
   {
     "__type__": "cc.Canvas",

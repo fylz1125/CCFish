@@ -3,8 +3,8 @@
   "_name": "coin_up",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 0.3,
-  "sample": 10,
+  "_duration": 1,
+  "sample": 5,
   "speed": 1,
   "wrapMode": 1,
   "curveData": {
@@ -24,21 +24,21 @@
               ]
             },
             {
-              "frame": 0.1,
+              "frame": 0.2,
               "value": [
                 -30,
                 30
               ]
             },
             {
-              "frame": 0.2,
+              "frame": 0.4,
               "value": [
                 -30,
                 60
               ]
             },
             {
-              "frame": 0.3,
+              "frame": 0.6,
               "value": [
                 -30,
                 80
@@ -47,11 +47,11 @@
           ],
           "opacity": [
             {
-              "frame": 0,
+              "frame": 0.6,
               "value": 255
             },
             {
-              "frame": 0.3,
+              "frame": 1,
               "value": 0
             }
           ]
@@ -68,21 +68,21 @@
               ]
             },
             {
-              "frame": 0.1,
+              "frame": 0.2,
               "value": [
                 0,
                 30
               ]
             },
             {
-              "frame": 0.2,
+              "frame": 0.4,
               "value": [
                 0,
                 60
               ]
             },
             {
-              "frame": 0.3,
+              "frame": 0.6,
               "value": [
                 0,
                 80
@@ -91,11 +91,11 @@
           ],
           "opacity": [
             {
-              "frame": 0,
+              "frame": 0.6,
               "value": 255
             },
             {
-              "frame": 0.3,
+              "frame": 1,
               "value": 0
             }
           ]
@@ -112,21 +112,21 @@
               ]
             },
             {
-              "frame": 0.1,
+              "frame": 0.2,
               "value": [
                 30,
                 30
               ]
             },
             {
-              "frame": 0.2,
+              "frame": 0.4,
               "value": [
                 30,
                 60
               ]
             },
             {
-              "frame": 0.3,
+              "frame": 0.6,
               "value": [
                 30,
                 80
@@ -135,11 +135,11 @@
           ],
           "opacity": [
             {
-              "frame": 0,
+              "frame": 0.6,
               "value": 255
             },
             {
-              "frame": 0.3,
+              "frame": 1,
               "value": 0
             }
           ]

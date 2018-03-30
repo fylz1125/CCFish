@@ -8,6 +8,9 @@ export default class Bullet extends cc.Component {
 
     game: Game;
 
+    // 子弹攻击力
+    attack: number = 10;
+
     // 子弹速度
     @property
     speed: number = 10;

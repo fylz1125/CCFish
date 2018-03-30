@@ -1,7 +1,10 @@
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class CoinController extends cc.Component {
+
+    @property(cc.Prefab)
+    coinPrefab: cc.Prefab = null;
 
     @property(cc.Sprite)
     number1: cc.Sprite = null;
@@ -30,10 +33,18 @@ export default class NewClass extends cc.Component {
     @property
     toValue: number = 0;
 
+    coinsPool: cc.NodePool;
+
+    coin: cc.Node;
+
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
 
+    }
+
+    init() {
+        this.coinsPool = new cc.NodePool();
     }
 
     // 数字固定长度lenght，不够的补0
@@ -57,9 +68,24 @@ export default class NewClass extends cc.Component {
         this.number4.spriteFrame = this.timerAtlas.getSpriteFrame(nums[3].toString());
         this.number5.spriteFrame = this.timerAtlas.getSpriteFrame(nums[4].toString());
         this.number6.spriteFrame = this.timerAtlas.getSpriteFrame(nums[5].toString());
+    }
 
+    gainCoins(coinPos: cc.Vec2, value: number) {
+        if (this.coinsPool.size() > 0) {
+            this.coin = this.coinsPool.get(this);
+        } else {
+            this.coin = cc.instantiate(this.coinPrefab);
+        }
+        this.coin.parent = cc.director.getScene();
+        this.coin.position = coinPos;
+        let aniState = this.coin.getComponent(cc.Animation).play('coin_up');
+        // 回收金币节点
+        aniState.on('stop', this.despawnCoin, this);
+    }
 
-    }f
+    despawnCoin() {
+        this.coinsPool.put(this.coin);
+    }
 
     start() {
 

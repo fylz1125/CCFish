@@ -2496,6 +2496,9 @@ declare module cc {
 		/** !#en The name of the playing animation.
 		!#zh 动画的名字 */
 		name: string;	
+
+		/**注册回调事件 */
+		on(type: string, callback: (event: Event.EventCustom) => void, target?: any, useCapture?: boolean): (event: Event.EventCustom) => void;
 	}	
 	/** undefined */
 	export class Playable {		

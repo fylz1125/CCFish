@@ -2,6 +2,7 @@ import { FishState, FishType } from './FishType';
 import Fish from './Fish';
 import Bullet from './Bullet';
 import Net from './Net';
+import CoinController from './Coincontroller';
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -22,6 +23,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     netPrefab: cc.Prefab = null;
 
+    @property(cc.Node)
+    coinController: cc.Node = null;    
+
     oneFish: cc.Node;
     oneBullet: cc.Node;
     oneNet: cc.Node;
@@ -33,12 +37,14 @@ export default class NewClass extends cc.Component {
     onLoad() {
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;
-        manager.enabledDebugDraw = true;
+        // manager.enabledDebugDraw = true;
         // manager.enabledDrawBoundingBox = true;
 
         this.bulletPool = new cc.NodePool(Bullet);
         this.fishPool = new cc.NodePool(Fish);
         this.netsPool = new cc.NodePool();
+
+        this.coinController.getComponent(CoinController).init();
 
         let self = this;
         cc.director.setDisplayStats(true);
@@ -50,7 +56,7 @@ export default class NewClass extends cc.Component {
             }
             // 加载之后转类型
             self.fishTypes = <FishType[]>data;
-            self.schedule(self.creatFish, 5);
+            self.schedule(self.creatFish, 2);
         });
 
 
@@ -81,40 +87,13 @@ export default class NewClass extends cc.Component {
         anim.play('weapon_level1');
     }
 
-    // castNet() {
-    //     cc.log('cast net');
-    //     this.oneFish.getComponent(Fish).castNet();
-    // }
-
     shot() {
         if (this.bulletPool.size() > 0) {
             this.oneBullet = this.bulletPool.get(this);
         } else {
             this.oneBullet = cc.instantiate(this.bulletPrefab);
         }
-        // self.oneBullet = cc.instantiate(this.bulletPrefab);
-        // let bulletPos = self.weaponNode.parent.convertToWorldSpaceAR(self.weaponNode.getPosition());
         this.oneBullet.getComponent(Bullet).init(this);
-    }
-
-    initFish() {
-        var self = this;
-        // if (this.fishTypes.length > 0) {
-        //     this.fishTypes.forEach(value => {
-                // let fish = cc.instantiate(self.fishPrefab);
-        //         let runstring = value.name + '_run';
-        //         let fish_x = cc.randomMinus1To1() * self.node.width / 2;
-        //         let fish_y = cc.randomMinus1To1() * self.node.height / 2;
-        //         fish.setPosition(fish_x, fish_y);
-        //         self.node.addChild(fish);
-                // fish.getComponent(Fish).initFish(value.name + '_run');
-
-        //     });
-        // }
-        // let fish = cc.instantiate(self.fishPrefab);
-        // fish.getComponent(Fish).initFish();
-
-
     }
 
     creatFish() {
@@ -148,5 +127,8 @@ export default class NewClass extends cc.Component {
         this.netsPool.put(net);
     }
 
-    // update (dt) {},
+    gainCoins(coinPos: cc.Vec2, value: number) {
+        this.coinController.getComponent(CoinController).gainCoins(coinPos, value);
+    }
+
 }
