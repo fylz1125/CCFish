@@ -4,7 +4,10 @@ const { ccclass, property } = cc._decorator;
 export default class CoinController extends cc.Component {
 
     @property(cc.Prefab)
-    coinPrefab: cc.Prefab = null;
+    coinPlusPrefab: cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    coinsPrefab: cc.Prefab = null;
 
     @property(cc.Sprite)
     number1: cc.Sprite = null;
@@ -33,9 +36,11 @@ export default class CoinController extends cc.Component {
     @property
     toValue: number = 0;
 
+    coinUpPool: cc.NodePool;
     coinsPool: cc.NodePool;
 
-    coin: cc.Node;
+    coin_up: cc.Node;
+    coins: cc.Node;
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -44,6 +49,7 @@ export default class CoinController extends cc.Component {
     }
 
     init() {
+        this.coinUpPool = new cc.NodePool();
         this.coinsPool = new cc.NodePool();
     }
 
@@ -71,20 +77,35 @@ export default class CoinController extends cc.Component {
     }
 
     gainCoins(coinPos: cc.Vec2, value: number) {
-        if (this.coinsPool.size() > 0) {
-            this.coin = this.coinsPool.get(this);
+        // 上升的数字对象池
+        if (this.coinUpPool.size() > 0) {
+            this.coin_up = this.coinUpPool.get(this);
         } else {
-            this.coin = cc.instantiate(this.coinPrefab);
+            this.coin_up = cc.instantiate(this.coinPlusPrefab);
         }
-        this.coin.parent = cc.director.getScene();
-        this.coin.position = coinPos;
-        let aniState = this.coin.getComponent(cc.Animation).play('coin_up');
+        // 金币对象池
+        if (this.coinsPool.size() > 0) {
+            this.coins = this.coinsPool.get(this);
+        } else {
+            this.coins = cc.instantiate(this.coinsPrefab);
+        }
+        // 添加数字节点
+        this.coin_up.parent = cc.director.getScene();
+        this.coin_up.position = coinPos;
+        // 播放数字上升的动画
+        let upState = this.coin_up.getComponent(cc.Animation).play('coin_up');
         // 回收金币节点
-        aniState.on('stop', this.despawnCoin, this);
+        upState.on('stop', this.despawnCoin, this);
+        
+        // 添加金币动画节点
+        this.coins.parent = cc.director.getScene();
+        this.coins.position = coinPos;
+        let downState = this.coins.getComponent(cc.Animation).play('gold_down');
+
     }
 
     despawnCoin() {
-        this.coinsPool.put(this.coin);
+        this.coinUpPool.put(this.coin_up);
     }
 
     start() {
