@@ -13,50 +13,6 @@
       "opacity": []
     },
     "paths": {
-      "goldnum_9": {
-        "props": {
-          "position": [
-            {
-              "frame": 0,
-              "value": [
-                -30,
-                0
-              ]
-            },
-            {
-              "frame": 0.2,
-              "value": [
-                -30,
-                30
-              ]
-            },
-            {
-              "frame": 0.4,
-              "value": [
-                -30,
-                60
-              ]
-            },
-            {
-              "frame": 0.6,
-              "value": [
-                -30,
-                80
-              ]
-            }
-          ],
-          "opacity": [
-            {
-              "frame": 0.6,
-              "value": 255
-            },
-            {
-              "frame": 1,
-              "value": 0
-            }
-          ]
-        }
-      },
       "goldnum_1": {
         "props": {
           "position": [
@@ -65,21 +21,8 @@
               "value": [
                 0,
                 0
-              ]
-            },
-            {
-              "frame": 0.2,
-              "value": [
-                0,
-                30
-              ]
-            },
-            {
-              "frame": 0.4,
-              "value": [
-                0,
-                60
-              ]
+              ],
+              "curve": "quartOut"
             },
             {
               "frame": 0.6,
@@ -109,26 +52,44 @@
               "value": [
                 30,
                 0
-              ]
-            },
-            {
-              "frame": 0.2,
-              "value": [
-                30,
-                30
-              ]
-            },
-            {
-              "frame": 0.4,
-              "value": [
-                30,
-                60
-              ]
+              ],
+              "curve": "quartOut"
             },
             {
               "frame": 0.6,
               "value": [
                 30,
+                80
+              ]
+            }
+          ],
+          "opacity": [
+            {
+              "frame": 0.6,
+              "value": 255
+            },
+            {
+              "frame": 1,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "goldnum_x": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -30,
+                0
+              ],
+              "curve": "quartOut"
+            },
+            {
+              "frame": 0.6,
+              "value": [
+                -30,
                 80
               ]
             }
