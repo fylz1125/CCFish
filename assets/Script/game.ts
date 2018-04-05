@@ -123,7 +123,6 @@ export default class NewClass extends cc.Component {
     }
 
     despawnNet(net: cc.Node) {
-        cc.log('game despawn');
         this.netsPool.put(net);
     }
 

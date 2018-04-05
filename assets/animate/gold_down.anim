@@ -3,8 +3,8 @@
   "_name": "gold_down",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 0.3333333333333333,
-  "sample": 30,
+  "_duration": 0.5,
+  "sample": 20,
   "speed": 1,
   "wrapMode": 2,
   "curveData": {
@@ -18,55 +18,55 @@
             }
           },
           {
-            "frame": 0.03333333333333333,
+            "frame": 0.05,
             "value": {
               "__uuid__": "2805584a-6040-4424-96c3-96d103045660"
             }
           },
           {
-            "frame": 0.06666666666666667,
+            "frame": 0.1,
             "value": {
               "__uuid__": "0f059f64-4f38-4b3e-b13e-984931a6e553"
             }
           },
           {
-            "frame": 0.1,
+            "frame": 0.15,
             "value": {
               "__uuid__": "2d788c1d-016d-4d67-84a4-ccc98384d993"
             }
           },
           {
-            "frame": 0.13333333333333333,
+            "frame": 0.2,
             "value": {
               "__uuid__": "a6f2b813-4d64-4515-be55-7be5e365f84f"
             }
           },
           {
-            "frame": 0.16666666666666666,
+            "frame": 0.25,
             "value": {
               "__uuid__": "66cbd9ed-1825-4b25-9682-bf94641784f7"
             }
           },
           {
-            "frame": 0.2,
+            "frame": 0.3,
             "value": {
               "__uuid__": "c2550ec9-9a23-4468-a5eb-b8f1433768dc"
             }
           },
           {
-            "frame": 0.23333333333333334,
+            "frame": 0.35,
             "value": {
               "__uuid__": "b63d7b96-2120-45f9-ab8f-9a1ce5cafa93"
             }
           },
           {
-            "frame": 0.26666666666666666,
+            "frame": 0.4,
             "value": {
               "__uuid__": "9a424810-bfbf-4ca0-9e0b-dd08f789db4c"
             }
           },
           {
-            "frame": 0.3,
+            "frame": 0.45,
             "value": {
               "__uuid__": "86f11e5c-0766-4bcf-b5e4-1b205070130a"
             }

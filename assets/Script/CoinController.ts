@@ -5,7 +5,7 @@ export default class CoinController extends cc.Component {
 
     @property(cc.Prefab)
     coinPlusPrefab: cc.Prefab = null;
-    
+
     @property(cc.Prefab)
     coinsPrefab: cc.Prefab = null;
 
@@ -39,7 +39,10 @@ export default class CoinController extends cc.Component {
     coinUpPool: cc.NodePool;
     coinsPool: cc.NodePool;
 
+    // +金币数字
     coin_up: cc.Node;
+
+    // 获得金币
     coins: cc.Node;
 
     // LIFE-CYCLE CALLBACKS:
@@ -51,6 +54,14 @@ export default class CoinController extends cc.Component {
     init() {
         this.coinUpPool = new cc.NodePool();
         this.coinsPool = new cc.NodePool();
+
+        //初始化金币对象池
+        // let initCoins = 5;
+        // for(let i=0;i<initCoins;++i){
+        //     let tmp = cc.instantiate(this.coinsPrefab);
+        //     this.coinsPool.put(tmp);
+        // }
+
     }
 
     // 数字固定长度lenght，不够的补0
@@ -65,7 +76,6 @@ export default class CoinController extends cc.Component {
     }
 
     setValue(value: number) {
-        this.toValue = value;
         let str = this.prefixInteger(value, 6);
         let nums = str.split('');
         this.number1.spriteFrame = this.timerAtlas.getSpriteFrame(nums[0].toString());
@@ -76,16 +86,21 @@ export default class CoinController extends cc.Component {
         this.number6.spriteFrame = this.timerAtlas.getSpriteFrame(nums[5].toString());
     }
 
-    gainCoins(coinPos: cc.Vec2, value: number) {
+    addCoins(value: number) {
+        this.currentValue += value;
+        this.setValue(this.currentValue);
+    }
+
+    gainCoins(coinPos: cc.Vec2, coinnum: number) {
         // 上升的数字对象池
         if (this.coinUpPool.size() > 0) {
-            this.coin_up = this.coinUpPool.get(this);
+            this.coin_up = this.coinUpPool.get();
         } else {
             this.coin_up = cc.instantiate(this.coinPlusPrefab);
         }
         // 金币对象池
         if (this.coinsPool.size() > 0) {
-            this.coins = this.coinsPool.get(this);
+            this.coins = this.coinsPool.get();
         } else {
             this.coins = cc.instantiate(this.coinsPrefab);
         }
@@ -95,18 +110,30 @@ export default class CoinController extends cc.Component {
         // 播放数字上升的动画
         let upState = this.coin_up.getComponent(cc.Animation).play('coin_up');
         // 回收金币节点
-        upState.on('stop', this.despawnCoin, this);
-        
+        upState.on('stop', this.despawnCoinup, this);
+
         // 添加金币动画节点
         this.coins.parent = cc.director.getScene();
         this.coins.position = coinPos;
         let downState = this.coins.getComponent(cc.Animation).play('gold_down');
-
+        let toPos = this.node.convertToWorldSpaceAR(this.number3.node.position);
+        let spawn = cc.spawn(cc.moveTo(0.8, toPos), cc.scaleTo(0.8, 0.5));
+        let cb = cc.callFunc(this.despawnCoins, this, coinnum);
+        let acf = cc.sequence(spawn, cb);
+        this.coins.runAction(acf);
     }
 
-    despawnCoin() {
+    despawnCoins(target:any,coinnum:number) {
+        this.coins.stopAllActions();
+        this.coinsPool.put(this.coins);
+        // 更新金币
+        this.addCoins(coinnum);
+    }
+
+    despawnCoinup() {
         this.coinUpPool.put(this.coin_up);
     }
+
 
     start() {
 

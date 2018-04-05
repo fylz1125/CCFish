@@ -21,7 +21,6 @@ export default class Net extends cc.Component {
     }
 
     despawnNet() {
-        cc.log('net despawn');
         this.game.despawnNet(this.node);
     }
 
