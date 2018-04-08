@@ -2,7 +2,7 @@ import { FishState, FishType } from './FishType';
 import Fish from './Fish';
 import Bullet from './Bullet';
 import Net from './Net';
-import CoinController from './Coincontroller';
+import CoinController from './CoinController';
 const { ccclass, property } = cc._decorator;
 
 @ccclass
