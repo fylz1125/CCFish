@@ -117,7 +117,7 @@ export default class CoinController extends cc.Component {
         this.oneCoin.getComponent(Coins).init(this);
         let toPos = this.node.convertToWorldSpaceAR(this.number3.node.position);
         this.oneCoin.getComponent(Coins).goDown(coinPos, toPos);
-
+        this.addCoins(coinnum);
     }
 
     despawnCoins(coin:cc.Node) {
