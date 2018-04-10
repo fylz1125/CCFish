@@ -9,7 +9,6 @@ export default class Weapon extends cc.Component {
     total: number;
     
     init() {
-        cc.log('init weapon !');
         this.curLevel = 1;
         this.total = this.anim.getClips().length;
     }
