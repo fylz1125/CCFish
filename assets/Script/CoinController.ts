@@ -55,7 +55,7 @@ export default class CoinController extends cc.Component {
     init() {
         this.coinUpPool = new cc.NodePool();
         this.coinsPool = new cc.NodePool();
-
+        this.setValue(this.currentValue);
     }
 
     // 数字固定长度lenght，不够的补0
