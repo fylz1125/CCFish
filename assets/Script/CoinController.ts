@@ -1,3 +1,4 @@
+import Coins from './Coins';
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -43,7 +44,7 @@ export default class CoinController extends cc.Component {
     coin_up: cc.Node;
 
     // 获得金币
-    coins: cc.Node;
+    oneCoin: cc.Node;
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -98,12 +99,7 @@ export default class CoinController extends cc.Component {
         } else {
             this.coin_up = cc.instantiate(this.coinPlusPrefab);
         }
-        // 金币对象池
-        if (this.coinsPool.size() > 0) {
-            this.coins = this.coinsPool.get();
-        } else {
-            this.coins = cc.instantiate(this.coinsPrefab);
-        }
+
         // 添加数字节点
         this.coin_up.parent = cc.director.getScene();
         this.coin_up.position = coinPos;
@@ -112,22 +108,20 @@ export default class CoinController extends cc.Component {
         // 回收金币节点
         upState.on('stop', this.despawnCoinup, this);
 
-        // 添加金币动画节点
-        this.coins.parent = cc.director.getScene();
-        this.coins.position = coinPos;
-        let downState = this.coins.getComponent(cc.Animation).play('gold_down');
+        // 金币对象池
+        if (this.coinsPool.size() > 0) {
+            this.oneCoin = this.coinsPool.get();
+        } else {
+            this.oneCoin = cc.instantiate(this.coinsPrefab);
+        }        
+        this.oneCoin.getComponent(Coins).init(this);
         let toPos = this.node.convertToWorldSpaceAR(this.number3.node.position);
-        let spawn = cc.spawn(cc.moveTo(0.8, toPos), cc.scaleTo(0.8, 0.5));
-        let cb = cc.callFunc(this.despawnCoins, this, coinnum);
-        let acf = cc.sequence(spawn, cb);
-        this.coins.runAction(acf);
+        this.oneCoin.getComponent(Coins).goDown(coinPos, toPos);
+
     }
 
-    despawnCoins(target:any,coinnum:number) {
-        this.coins.stopAllActions();
-        this.coinsPool.put(this.coins);
-        // 更新金币
-        this.addCoins(coinnum);
+    despawnCoins(coin:cc.Node) {
+        this.coinsPool.put(coin);
     }
 
     despawnCoinup() {
