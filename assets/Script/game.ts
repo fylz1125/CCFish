@@ -6,7 +6,7 @@ import CoinController from './CoinController';
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class Game extends cc.Component {
     //鱼对象池
     fishPool: cc.NodePool;
     fishTypes: FishType[];
@@ -103,6 +103,14 @@ export default class NewClass extends cc.Component {
             this.oneFish = cc.instantiate(this.fishPrefab);
         }
         this.oneFish.getComponent(Fish).init(this);
+    }
+
+    cannonUp() {
+        
+    }
+
+    cannonDown() {
+        
     }
 
     castNet(position:cc.Vec2) {

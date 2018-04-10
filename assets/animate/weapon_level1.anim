@@ -3,8 +3,8 @@
   "_name": "weapon_level1",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 0.5,
-  "sample": 10,
+  "_duration": 0.3333333333333333,
+  "sample": 15,
   "speed": 1,
   "wrapMode": 1,
   "curveData": {
@@ -18,25 +18,25 @@
             }
           },
           {
-            "frame": 0.1,
+            "frame": 0.06666666666666667,
             "value": {
               "__uuid__": "24d91079-898d-4a00-9162-5fe14ca29ae9"
             }
           },
           {
-            "frame": 0.2,
+            "frame": 0.13333333333333333,
             "value": {
               "__uuid__": "a29eef79-eeb2-4a38-a168-d21bd37e3998"
             }
           },
           {
-            "frame": 0.3,
+            "frame": 0.2,
             "value": {
               "__uuid__": "286bfe94-1f51-4171-acf3-0d9583d95885"
             }
           },
           {
-            "frame": 0.4,
+            "frame": 0.26666666666666666,
             "value": {
               "__uuid__": "682ddab7-e1ff-414f-b88d-abc2b3f11763"
             }

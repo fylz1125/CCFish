@@ -127,10 +127,4 @@ export default class CoinController extends cc.Component {
     despawnCoinup() {
         this.coinUpPool.put(this.coin_up);
     }
-
-
-    start() {
-
-    }
-
 }
