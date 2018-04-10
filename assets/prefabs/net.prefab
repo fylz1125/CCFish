@@ -104,6 +104,24 @@
     "_clips": [
       {
         "__uuid__": "8d70fff5-61e4-41a8-bb57-1937dce06b21"
+      },
+      {
+        "__uuid__": "ae58eac7-a12e-45e5-9b0e-f20ddb8dde02"
+      },
+      {
+        "__uuid__": "b6d24188-4d34-40dc-a4c8-300d8708c3c9"
+      },
+      {
+        "__uuid__": "c6650e6d-eee1-4285-9782-b2824e396c73"
+      },
+      {
+        "__uuid__": "ba99ccbe-4ea0-47e2-9481-e365a4edb9f9"
+      },
+      {
+        "__uuid__": "e7bbde70-d98b-48cd-9335-7acb5764f593"
+      },
+      {
+        "__uuid__": "37b4eef4-871c-401c-bdee-6b9adc01c331"
       }
     ],
     "playOnLoad": false
