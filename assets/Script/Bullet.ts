@@ -8,8 +8,8 @@ export default class Bullet extends cc.Component {
 
     game: Game;
 
-    // 子弹攻击力
-    attack: number = 100;
+    // 子弹攻击力，基础攻击力
+    private attack: number = 10;
 
     // 子弹速度
     @property
@@ -58,5 +58,9 @@ export default class Bullet extends cc.Component {
         let posNet = cc.pMidpoint(posb[0], posb[3]);
         this.game.castNet(posNet);
         this.game.despawnBullet(this.node);
+    }
+
+    getAttackValue():number {
+        return this.attack * this.bulletLeve;
     }
 }

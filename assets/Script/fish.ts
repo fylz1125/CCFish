@@ -12,9 +12,9 @@ export default class Fish extends cc.Component {
     @property(cc.Animation)
     anim: cc.Animation = null;//显示申明类型，才能有代码提示
 
-    // Health point 血量 默认100
+    // Health point 血量 默认10
     @property
-    hp: number = 100;
+    hp: number = 10;
 
     // defence 防御值，默认未0
     @property
@@ -157,7 +157,7 @@ export default class Fish extends cc.Component {
 
     onCollisionEnter(other, self) {
         let bullet = <Bullet>other.node.getComponent(Bullet);
-        this.hp -= bullet.attack;
+        this.hp -= bullet.getAttackValue();
         if (this.hp <= 0) {
             this.fishState = FishState.dead;
         }
