@@ -15,20 +15,32 @@ export default class Bullet extends cc.Component {
     @property
     speed: number = 10;
 
-    init(game:Game) {
+    @property(cc.SpriteAtlas)
+    spAtlas: cc.SpriteAtlas = null;    
+
+    bulletLeve: number = 1;
+
+    // init(game:Game) {
+    //     this.game = game;
+    //     this.enabled = true;
+    //     this.shot(game);
+    // }
+
+    shot(game: Game, level: number) {
         this.game = game;
         this.enabled = true;
-        this.shot(game);
-    }
-
-    // shot(ang: number, weaponSite: cc.Vec2) {
-    shot(game: Game) {
         let weaponSite = game.weaponNode.parent.convertToWorldSpaceAR(game.weaponNode.getPosition());
         this.angle = game.weaponNode.rotation;
         this.node.rotation = this.angle;
         let bpos = cc.p(weaponSite.x + 50 * Math.sin(this.angle / 180 * 3.14), weaponSite.y + 50 * Math.cos(this.angle / 180 * 3.14));
+        this.setBullet(level);
         this.node.position = bpos;
         this.node.parent = cc.director.getScene();
+    }
+
+    setBullet(level: number) {
+        this.bulletLeve = level;
+        this.node.getComponent(cc.Sprite).spriteFrame = this.spAtlas.getSpriteFrame('bullet' + this.bulletLeve);
     }
 
     update(dt) {

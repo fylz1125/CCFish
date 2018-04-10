@@ -3,6 +3,7 @@ import Fish from './Fish';
 import Bullet from './Bullet';
 import Net from './Net';
 import CoinController from './CoinController';
+import Weapon from './Weapon';
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -45,6 +46,7 @@ export default class Game extends cc.Component {
         this.netsPool = new cc.NodePool();
 
         this.coinController.getComponent(CoinController).init();
+        this.weaponNode.getComponent(Weapon).init();
 
         let self = this;
         cc.director.setDisplayStats(true);
@@ -70,7 +72,8 @@ export default class Game extends cc.Component {
             let radian = Math.atan((touchPos.x - weaponPos.x) / (touchPos.y - weaponPos.y));
             let degree = radian * 180 / 3.14;
             self.weaponNode.rotation = degree;
-            self.shot();
+            let bulletLevel = self.weaponNode.getComponent(Weapon).curLevel;
+            self.shot(bulletLevel);
         }, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
             // cc.log('touch move');
@@ -82,18 +85,13 @@ export default class Game extends cc.Component {
 
     }
 
-    cannonPlus() {
-        let anim = this.weaponNode.getComponent(cc.Animation);
-        anim.play('weapon_level1');
-    }
-
-    shot() {
+    shot(level:number) {
         if (this.bulletPool.size() > 0) {
             this.oneBullet = this.bulletPool.get(this);
         } else {
             this.oneBullet = cc.instantiate(this.bulletPrefab);
         }
-        this.oneBullet.getComponent(Bullet).init(this);
+        this.oneBullet.getComponent(Bullet).shot(this, level);
     }
 
     creatFish() {
@@ -105,13 +103,6 @@ export default class Game extends cc.Component {
         this.oneFish.getComponent(Fish).init(this);
     }
 
-    cannonUp() {
-        
-    }
-
-    cannonDown() {
-        
-    }
 
     castNet(position:cc.Vec2) {
         if (this.netsPool.size() > 0) {

@@ -56,13 +56,6 @@ export default class CoinController extends cc.Component {
         this.coinUpPool = new cc.NodePool();
         this.coinsPool = new cc.NodePool();
 
-        //初始化金币对象池
-        // let initCoins = 5;
-        // for(let i=0;i<initCoins;++i){
-        //     let tmp = cc.instantiate(this.coinsPrefab);
-        //     this.coinsPool.put(tmp);
-        // }
-
     }
 
     // 数字固定长度lenght，不够的补0

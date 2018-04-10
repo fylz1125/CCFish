@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "weapon_level_2",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.3333333333333333,
+  "sample": 15,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "d932f480-c4a8-49d6-8cda-a03143e51115"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "4d46a583-b2bf-4562-b699-f3680c780bfe"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "70ae7bf2-0452-4e6f-bae3-740cd4589a33"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "59861bb3-ff57-41c9-a255-b9182c03047f"
+            }
+          },
+          {
+            "frame": 0.26666666666666666,
+            "value": {
+              "__uuid__": "e39dade0-c7a8-4a27-9578-ad7f965fb7c7"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
