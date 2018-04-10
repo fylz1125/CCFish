@@ -179,24 +179,6 @@
     "playOnLoad": false
   },
   {
-    "__type__": "850d89lUYNOCoLn8A9P27uW",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "anim": {
-      "__id__": 3
-    },
-    "hp": 100,
-    "defence": 0,
-    "velocity": 30,
-    "fishAtlas": {
-      "__uuid__": "86fe4526-9483-4c85-b7c9-b3a4ec696d58"
-    }
-  },
-  {
     "__type__": "cc.BoxCollider",
     "_name": "",
     "_objFlags": 0,
@@ -215,6 +197,21 @@
       "width": 68,
       "height": 31
     }
+  },
+  {
+    "__type__": "22cd0aTCm5CvbUGmTmmcs80",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "anim": {
+      "__id__": 3
+    },
+    "hp": 10,
+    "defence": 0,
+    "velocity": 30
   },
   {
     "__type__": "cc.PrefabInfo",
