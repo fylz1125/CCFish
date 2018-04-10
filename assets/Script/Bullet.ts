@@ -13,18 +13,9 @@ export default class Bullet extends cc.Component {
 
     // 子弹速度
     @property
-    speed: number = 10;
-
-    @property(cc.SpriteAtlas)
-    spAtlas: cc.SpriteAtlas = null;    
+    speed: number = 10;  
 
     bulletLeve: number = 1;
-
-    // init(game:Game) {
-    //     this.game = game;
-    //     this.enabled = true;
-    //     this.shot(game);
-    // }
 
     shot(game: Game, level: number) {
         this.game = game;
@@ -40,7 +31,7 @@ export default class Bullet extends cc.Component {
 
     setBullet(level: number) {
         this.bulletLeve = level;
-        this.node.getComponent(cc.Sprite).spriteFrame = this.spAtlas.getSpriteFrame('bullet' + this.bulletLeve);
+        this.node.getComponent(cc.Sprite).spriteFrame = this.game.spAtlas.getSpriteFrame('bullet' + this.bulletLeve);
     }
 
     update(dt) {

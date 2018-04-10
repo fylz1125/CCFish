@@ -1436,6 +1436,9 @@
     },
     "coinController": {
       "__id__": 19
+    },
+    "spAtlas": {
+      "__uuid__": "86fe4526-9483-4c85-b7c9-b3a4ec696d58"
     }
   }
 ]

@@ -25,7 +25,10 @@ export default class Game extends cc.Component {
     netPrefab: cc.Prefab = null;
 
     @property(cc.Node)
-    coinController: cc.Node = null;    
+    coinController: cc.Node = null;
+    
+    @property(cc.SpriteAtlas)
+    spAtlas: cc.SpriteAtlas = null;
 
     oneFish: cc.Node;
     oneBullet: cc.Node;
@@ -110,7 +113,8 @@ export default class Game extends cc.Component {
         } else {
             this.oneNet = cc.instantiate(this.netPrefab);
         }
-        this.oneNet.getComponent(Net).init(position,this);
+        let bulletLevel = this.weaponNode.getComponent(Weapon).curLevel;
+        this.oneNet.getComponent(Net).init(position,this,bulletLevel);
     }
 
     despawnFish(fish: cc.Node) {

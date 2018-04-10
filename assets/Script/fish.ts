@@ -24,8 +24,6 @@ export default class Fish extends cc.Component {
     @property
     velocity: number = 30;
 
-    @property(cc.SpriteAtlas)
-    fishAtlas: cc.SpriteAtlas = null;
 
     // fish state 鱼的生命状态，默认都是活的
     fishState: FishState = FishState.alive;
@@ -55,7 +53,7 @@ export default class Fish extends cc.Component {
         let firstp = cc.p(100, -200);
         let k = Math.atan((firstp.y) / (firstp.x));
         this.node.rotation = -k * 180 / 3.14;
-        this.node.getComponent(cc.Sprite).spriteFrame = this.fishAtlas.getSpriteFrame(this.fishType.name + '_run_0');
+        this.node.getComponent(cc.Sprite).spriteFrame = this.game.spAtlas.getSpriteFrame(this.fishType.name + '_run_0');
         // 取出鱼的血量
         this.hp = this.fishType.hp;
         this.fishState = FishState.alive;
