@@ -2,56 +2,56 @@
     {
         "name": "fish_red",
         "hp": 10,
-        "gold": 2
+        "gold": 10
     },
     {
         "name": "fish_denglong",
         "hp": 20,
-        "gold": 4
+        "gold": 20
     },
     {
         "name": "fish_yellow",
-        "hp": 20,
-        "gold": 4
+        "hp": 30,
+        "gold": 30
     },
     {
         "name": "fish_bigred",
-        "hp": 20,
-        "gold": 4
+        "hp": 40,
+        "gold": 40
     },
     {
         "name": "fish_fuyi",
-        "hp": 30,
-        "gold": 8
+        "hp": 50,
+        "gold": 50
     },
     {
         "name": "fish_gui",
-        "hp": 40,
-        "gold": 10
+        "hp": 50,
+        "gold": 50
     },
     {
         "name": "fish_hailuoshuimu",
-        "hp": 50,
-        "gold": 20
+        "hp": 60,
+        "gold": 60
     },
     {
         "name": "fish_hetun",
         "hp": 60,
-        "gold": 30
+        "gold": 60
     },
     {
         "name": "fish_jinshayu",
-        "hp": 70,
-        "gold": 50
+        "hp": 80,
+        "gold": 80
     },
     {
         "name": "fish_shayu",
-        "hp": 60,
-        "gold": 30
+        "hp": 70,
+        "gold": 70
     },
     {
         "name": "fish_shuimu",
-        "hp": 40,
-        "gold": 10
+        "hp": 60,
+        "gold": 60
     }
 ]

@@ -1,4 +1,5 @@
 import Coins from './Coins';
+import NumUp from './NumUp';
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -63,12 +64,6 @@ export default class CoinController extends cc.Component {
         return (Array(length).join('0') + num).slice(-length);
     }
 
-    moveOne() {
-        let num = cc.random0To1() * 1000000;
-        this.setValue(num);
-
-    }
-
     setValue(value: number) {
         let str = this.prefixInteger(value, 6);
         let nums = str.split('');
@@ -92,14 +87,14 @@ export default class CoinController extends cc.Component {
         } else {
             this.coin_up = cc.instantiate(this.coinPlusPrefab);
         }
-
-        // 添加数字节点
-        this.coin_up.parent = cc.director.getScene();
-        this.coin_up.position = coinPos;
-        // 播放数字上升的动画
-        let upState = this.coin_up.getComponent(cc.Animation).play('coin_up');
-        // 回收金币节点
-        upState.on('stop', this.despawnCoinup, this);
+        this.coin_up.getComponent(NumUp).init(coinPos, coinnum, this);
+        // // 添加数字节点
+        // this.coin_up.parent = cc.director.getScene();
+        // this.coin_up.position = coinPos;
+        // // 播放数字上升的动画
+        // let upState = this.coin_up.getComponent(cc.Animation).play('coin_up');
+        // // 回收金币节点
+        // upState.on('stop', this.despawnCoinup, this);
 
         // 金币对象池
         if (this.coinsPool.size() > 0) {
@@ -117,7 +112,7 @@ export default class CoinController extends cc.Component {
         this.coinsPool.put(coin);
     }
 
-    despawnCoinup() {
-        this.coinUpPool.put(this.coin_up);
+    despawnCoinup(nup:cc.Node) {
+        this.coinUpPool.put(nup);
     }
 }

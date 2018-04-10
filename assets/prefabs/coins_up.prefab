@@ -29,10 +29,13 @@
     "_components": [
       {
         "__id__": 11
+      },
+      {
+        "__id__": 12
       }
     ],
     "_prefab": {
-      "__id__": 12
+      "__id__": 13
     },
     "_id": "",
     "_opacity": 255,
@@ -366,6 +369,27 @@
       }
     ],
     "playOnLoad": true
+  },
+  {
+    "__type__": "fc121wk/tZKbpMMPfOS1Mhf",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "anim": {
+      "__id__": 11
+    },
+    "numAtlas": {
+      "__uuid__": "488d9c1c-f5f6-4d16-ae16-344c3df2e63d"
+    },
+    "tensPlace": {
+      "__id__": 6
+    },
+    "onesPlace": {
+      "__id__": 9
+    }
   },
   {
     "__type__": "cc.PrefabInfo",
