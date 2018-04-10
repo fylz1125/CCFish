@@ -208,10 +208,7 @@
     "_enabled": true,
     "anim": {
       "__id__": 3
-    },
-    "hp": 10,
-    "defence": 0,
-    "velocity": 30
+    }
   },
   {
     "__type__": "cc.PrefabInfo",

@@ -2,7 +2,7 @@
 interface FishType{
     name: string;
     hp: number;
-    defence: number
+    gold: number
 }
 
 // 鱼的生命状态

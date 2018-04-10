@@ -13,17 +13,9 @@ export default class Fish extends cc.Component {
     anim: cc.Animation = null;//显示申明类型，才能有代码提示
 
     // Health point 血量 默认10
-    @property
     hp: number = 10;
-
-    // defence 防御值，默认未0
-    @property
-    defence: number = 0;
-
-    // 鱼游动的速度，先搞个简单的
-    @property
-    velocity: number = 30;
-
+    // gold 打死掉落金币数量
+    gold: number = 2;
 
     // fish state 鱼的生命状态，默认都是活的
     fishState: FishState = FishState.alive;
@@ -56,6 +48,8 @@ export default class Fish extends cc.Component {
         this.node.getComponent(cc.Sprite).spriteFrame = this.game.spAtlas.getSpriteFrame(this.fishType.name + '_run_0');
         // 取出鱼的血量
         this.hp = this.fishType.hp;
+        // 掉落金币
+        this.gold = this.fishType.gold;
         this.fishState = FishState.alive;
         this.anim.play(this.fishType.name + '_run');
         this.node.parent = cc.director.getScene();
@@ -121,7 +115,7 @@ export default class Fish extends cc.Component {
             // 被打死的动画播放完成之后回调
             animState.on('stop', this.dieCallback, this);
             // 播放金币动画
-            this.game.gainCoins(this.node.position,3);
+            this.game.gainCoins(this.node.position, this.gold);
         } else {
             // 跑出屏幕的鱼自动回收
             this.despawnFish();
