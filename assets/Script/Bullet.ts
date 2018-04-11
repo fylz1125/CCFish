@@ -48,7 +48,6 @@ export default class Bullet extends cc.Component {
             || this.node.y < 0
         ) {
             this.game.despawnBullet(this.node);
-            // cc.log('bullet x ' + this.node.x);
         }
     }
     onCollisionEnter(other, self) {

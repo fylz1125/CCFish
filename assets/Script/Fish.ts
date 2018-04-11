@@ -109,7 +109,7 @@ export default class Fish extends cc.Component {
     beAttack() {
         if (this.isDie()) {
             // 停止贝塞尔曲线动作
-            this.node.pauseAllActions();
+            this.node.stopAllActions();
             //播放死亡动画
             let animState = this.anim.play(this.fishType.name + '_die');
             // 被打死的动画播放完成之后回调

@@ -88,13 +88,6 @@ export default class CoinController extends cc.Component {
             this.coin_up = cc.instantiate(this.coinPlusPrefab);
         }
         this.coin_up.getComponent(NumUp).init(coinPos, coinnum, this);
-        // // 添加数字节点
-        // this.coin_up.parent = cc.director.getScene();
-        // this.coin_up.position = coinPos;
-        // // 播放数字上升的动画
-        // let upState = this.coin_up.getComponent(cc.Animation).play('coin_up');
-        // // 回收金币节点
-        // upState.on('stop', this.despawnCoinup, this);
 
         // 金币对象池
         if (this.coinsPool.size() > 0) {

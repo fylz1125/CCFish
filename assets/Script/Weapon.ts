@@ -31,7 +31,5 @@ export default class Weapon extends cc.Component {
         this.anim.play('weapon_level_' + this.curLevel);
     }
     
-    onLoad() {
-        // this.total = this.anim.getClips().length;
-    }
+
 }
