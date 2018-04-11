@@ -9,7 +9,7 @@ export default class Bullet extends cc.Component {
     game: Game;
 
     // 子弹攻击力，基础攻击力
-    private attack: number = 10;
+    private attack: number = 4;
 
     // 子弹速度
     @property
@@ -19,6 +19,7 @@ export default class Bullet extends cc.Component {
 
     shot(game: Game, level: number) {
         this.game = game;
+        // 启动update函数
         this.enabled = true;
         let weaponSite = game.weaponNode.parent.convertToWorldSpaceAR(game.weaponNode.getPosition());
         this.angle = game.weaponNode.rotation;
@@ -29,6 +30,7 @@ export default class Bullet extends cc.Component {
         this.node.parent = cc.director.getScene();
     }
 
+    // 根据武器等级设置子弹等级
     setBullet(level: number) {
         this.bulletLeve = level;
         this.node.getComponent(cc.Sprite).spriteFrame = this.game.spAtlas.getSpriteFrame('bullet' + this.bulletLeve);

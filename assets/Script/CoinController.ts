@@ -75,9 +75,20 @@ export default class CoinController extends cc.Component {
         this.number6.spriteFrame = this.timerAtlas.getSpriteFrame(nums[5].toString());
     }
 
+    // 获取金币加数
     addCoins(value: number) {
         this.currentValue += value;
         this.setValue(this.currentValue);
+    }
+
+    // 发射子弹消耗金币
+    reduceCoin(level: number): boolean{
+        if (this.currentValue >= level) {
+            this.setValue(this.currentValue-=level);
+            return true;
+        } 
+        
+        return false;
     }
 
     gainCoins(coinPos: cc.Vec2, coinnum: number) {

@@ -94,7 +94,12 @@ export default class Game extends cc.Component {
         } else {
             this.oneBullet = cc.instantiate(this.bulletPrefab);
         }
-        this.oneBullet.getComponent(Bullet).shot(this, level);
+        // 剩余金币
+        let left = this.coinController.getComponent(CoinController).reduceCoin(level);
+        if (left) {
+            this.oneBullet.getComponent(Bullet).shot(this, level);
+        }
+        
     }
 
     creatFish() {
