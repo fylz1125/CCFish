@@ -38,7 +38,6 @@ export default class Fish extends cc.Component {
     spawnFish(game: Game) {
         let fishStr = game.fishTypes.length;
         let randomFish = Math.floor(cc.random0To1() * fishStr);
-        // cc.log('random :' + randomFish);
         this.fishType = game.fishTypes[randomFish];
         this.node.position = cc.p(cc.random0To1() * 100, 700);
         // 贝塞尔曲线第一个控制点，用来计算初始角度
