@@ -55,7 +55,9 @@ export default class Fish extends cc.Component {
         let fishStr = game.fishTypes.length;
         let randomFish = Math.floor(cc.random0To1() * fishStr);
         this.fishType = game.fishTypes[randomFish];
-        this.node.position = cc.p(-cc.random0To1()*100-200, cc.randomMinus1To1() * 300 + 350);
+        // this.node.position = cc.p(-cc.random0To1()*100-200, cc.randomMinus1To1() * 300 + 350);
+        let pos = cc.p(-cc.random0To1() * 100 - 200, cc.randomMinus1To1() * 300 + 350);
+        this.node.position = cc.find('Canvas').convertToNodeSpaceAR(pos);
         let index = Math.floor(cc.random0To1() * this.bezierArray.length);
         let bezier = this.bezierArray[index];
         // 贝塞尔曲线第一个控制点，用来计算初始角度
@@ -69,9 +71,10 @@ export default class Fish extends cc.Component {
         this.gold = this.fishType.gold;
         this.fishState = FishState.alive;
         this.anim.play(this.fishType.name + '_run');
-        this.node.parent = cc.director.getScene();   
+        // 加到canvas节点下才可以设置zorder
+        // 默认zorder为0，bg设为-1，炮台设为1
+        this.node.parent = cc.find('Canvas');
         this.lastPosition = this.node.getPosition();
-        this.node.setLocalZOrder(1);
         this.changeCollider();
         this.swimming(bezier);
     }
@@ -134,7 +137,9 @@ export default class Fish extends cc.Component {
             // 被打死的动画播放完成之后回调
             animState.on('stop', this.dieCallback, this);
             // 播放金币动画
-            this.game.gainCoins(this.node.position, this.gold);
+            // 转为世界坐标
+            let fp = this.node.parent.convertToWorldSpaceAR(this.node.position);
+            this.game.gainCoins(fp, this.gold);
         } else {
             // 跑出屏幕的鱼自动回收
             this.despawnFish();
@@ -148,10 +153,10 @@ export default class Fish extends cc.Component {
     }
 
     despawnFish() {
-        if (this.node.x > 1400
-            || this.node.x < -600
-            || this.node.y > 900
-            || this.node.y < -500
+        if (this.node.x > 900
+            || this.node.x < -1000
+            || this.node.y > 600
+            || this.node.y < -900
         ) {
             // this.node.removeFromParent();
             // 可以不移除节点，停止所有动作也可以完成

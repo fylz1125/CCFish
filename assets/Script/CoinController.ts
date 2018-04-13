@@ -98,6 +98,7 @@ export default class CoinController extends cc.Component {
         } else {
             this.coin_up = cc.instantiate(this.coinPlusPrefab);
         }
+
         this.coin_up.getComponent(NumUp).init(coinPos, coinnum, this);
 
         // 金币对象池
@@ -107,6 +108,7 @@ export default class CoinController extends cc.Component {
             this.oneCoin = cc.instantiate(this.coinsPrefab);
         }        
         this.oneCoin.getComponent(Coins).init(this);
+        // 转为世界坐标
         let toPos = this.node.convertToWorldSpaceAR(this.number3.node.position);
         this.oneCoin.getComponent(Coins).goDown(coinPos, toPos);
         this.addCoins(coinnum);

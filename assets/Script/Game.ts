@@ -50,6 +50,11 @@ export default class Game extends cc.Component {
 
         this.coinController.getComponent(CoinController).init();
         this.weaponNode.getComponent(Weapon).init();
+        // 设置zorder，控制显示层级
+        // 背景在最下层，最上层是炮台
+        // 中间层是鱼
+        cc.find('Canvas/game_bg').setLocalZOrder(-1);
+        cc.find('Canvas/bottomBar').setLocalZOrder(1);
 
         let self = this;
         cc.director.setDisplayStats(true);
