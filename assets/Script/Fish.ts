@@ -56,7 +56,7 @@ export default class Fish extends cc.Component {
         let randomFish = Math.floor(cc.random0To1() * fishStr);
         this.fishType = game.fishTypes[randomFish];
         // this.node.position = cc.p(-cc.random0To1()*100-200, cc.randomMinus1To1() * 300 + 350);
-        let pos = cc.p(-cc.random0To1() * 100 - 200, cc.randomMinus1To1() * 300 + 350);
+        let pos = cc.p(-cc.random0To1() * 100-200, cc.randomMinus1To1() * 300 + 350);
         this.node.position = cc.find('Canvas').convertToNodeSpaceAR(pos);
         let index = Math.floor(cc.random0To1() * this.bezierArray.length);
         let bezier = this.bezierArray[index];
@@ -89,7 +89,7 @@ export default class Fish extends cc.Component {
     swimming(trace:any) {
         let windowSize = cc.director.getWinSize();
         // var bezier = [cc.p(100, -200), cc.p(400, -500), cc.p(1500, -600)];
-        let speed = cc.random0To1() * 15 + 5;
+        let speed = cc.random0To1() * 10 + 10;
         let bezerby = cc.bezierBy(speed, trace);
         this.node.runAction(bezerby);
     }

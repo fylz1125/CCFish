@@ -30,6 +30,9 @@ export default class Game extends cc.Component {
     @property(cc.SpriteAtlas)
     spAtlas: cc.SpriteAtlas = null;
 
+    @property(cc.Node)
+    gameOverNode: cc.Node = null;
+
     oneFish: cc.Node;
     oneBullet: cc.Node;
     oneNet: cc.Node;
@@ -55,6 +58,8 @@ export default class Game extends cc.Component {
         // 中间层是鱼
         cc.find('Canvas/game_bg').setLocalZOrder(-1);
         cc.find('Canvas/bottomBar').setLocalZOrder(1);
+        this.gameOverNode.setLocalZOrder(2);
+        this.gameOverNode.active = false;
 
         let self = this;
         cc.director.setDisplayStats(true);
@@ -103,6 +108,10 @@ export default class Game extends cc.Component {
         let left = this.coinController.getComponent(CoinController).reduceCoin(level);
         if (left) {
             this.oneBullet.getComponent(Bullet).shot(this, level);
+        } else {
+            if (this.coinController.getComponent(CoinController).currentValue == 0) {
+                this.gameOver();
+            }
         }
         
     }
@@ -143,4 +152,13 @@ export default class Game extends cc.Component {
         this.coinController.getComponent(CoinController).gainCoins(coinPos, value);
     }
 
+    gameOver() {
+        this.gameOverNode.active = true;
+        this.unscheduleAllCallbacks();
+    }
+
+    gameRestart() {
+        // cc.game.restart();
+        cc.director.loadScene('mainscene');
+    }
 }
