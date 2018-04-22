@@ -49,6 +49,12 @@ export default class Game extends cc.Component {
 
         this.bulletPool = new cc.NodePool(Bullet);
         this.fishPool = new cc.NodePool(Fish);
+        // 池子里面多放几条鱼
+        let initCount = 10;
+        for (let i = 0; i < initCount; ++i){
+            let fishPre = cc.instantiate(this.fishPrefab);
+            this.fishPool.put(fishPre);
+        }
         this.netsPool = new cc.NodePool();
 
         this.coinController.getComponent(CoinController).init();
@@ -117,12 +123,28 @@ export default class Game extends cc.Component {
     }
 
     creatFish() {
+        /**
         if (this.fishPool.size() > 0) {
             this.oneFish = this.fishPool.get(this);
         } else {
             this.oneFish = cc.instantiate(this.fishPrefab);
         }
         this.oneFish.getComponent(Fish).init(this);
+        */
+       //一次创建3条鱼
+        
+        let fishCount = 3;
+        for (let i = 0; i < fishCount; ++i){
+            let cfish: cc.Node = null; 
+            if (this.fishPool.size() > 0) {
+                cfish = this.fishPool.get(this);
+            } else {
+                cfish = cc.instantiate(this.fishPrefab); 
+            }
+           cfish.getComponent(Fish).init(this);
+        }
+         
+        
     }
 
 
