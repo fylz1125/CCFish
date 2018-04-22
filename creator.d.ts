@@ -3571,7 +3571,12 @@ declare module cc {
 	!#zh
 	Cocos Creator 场景中的所有节点类。节点也继承了 {{#crossLink "EventTarget"}}EventTarget{{/crossLink}}，它允许节点发送事件。<br/>
 	支持的节点事件，请参阅 {{#crossLink "Node.EventType"}}{{/crossLink}}。 */
-	export class Node extends _BaseNode {		
+	export class Node extends _BaseNode {	
+		
+		/**
+		 * 渲染节点，所有的渲染节点的根节点
+		 */
+		_sgNode:SGNode;
 		/** !#en
 		Group index of node.<br/>
 		Which Group this node belongs to will resolve that this node's collision components can collide with which other collision componentns.<br/>
@@ -7674,7 +7679,28 @@ declare module cc {
 		``` 
 		*/
 		getInsetBottom(): number;	
+		/**
+		 * 渲染节点，所有的渲染节点的根节点
+		 */
+		_sgNode:SGNode;
 	}	
+
+	/**
+	 * 渲染基类，是所有node的基类，所有绘画节点和包含内容的node都是一个SGNode
+	 */
+	export class SGNode{
+		/**
+		 * 为当前节点设置program
+		 * @param newShaderProgram 
+		 */
+		setShaderProgram(newShaderProgram: GLProgram)
+		
+		setGLProgramState(glProgram_state: any);
+
+		// 设置shader状态
+		setState(deState : number);
+	}
+
 	/** !#en The toggle component is a CheckBox, when it used together with a ToggleGroup, it
 	could be treated as a RadioButton.
 	!#zh Toggle 是一个 CheckBox，当它和 ToggleGroup 一起使用的时候，可以变成 RadioButton。 */
