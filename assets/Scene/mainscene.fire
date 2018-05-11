@@ -1603,6 +1603,9 @@
     },
     "gameOverNode": {
       "__id__": 37
+    },
+    "bgm": {
+      "__uuid__": "4a2e9cfa-6f17-478b-af7b-4632790eab7e"
     }
   }
 ]

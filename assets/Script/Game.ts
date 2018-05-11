@@ -33,6 +33,9 @@ export default class Game extends cc.Component {
     @property(cc.Node)
     gameOverNode: cc.Node = null;
 
+    @property(cc.AudioClip)
+    bgm: cc.AudioClip = null;    
+
     oneFish: cc.Node;
     oneBullet: cc.Node;
     oneNet: cc.Node;
@@ -42,6 +45,8 @@ export default class Game extends cc.Component {
     netsPool: cc.NodePool;
 
     onLoad() {
+        cc.audioEngine.playMusic(this.bgm, true);
+
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;
         // manager.enabledDebugDraw = true;

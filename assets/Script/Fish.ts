@@ -1,6 +1,7 @@
 import { FishState, FishType } from './FishType';
 import Game from './Game';
 import Bullet from './Bullet';
+import Fluxay from './FluxayFrag';
 const { ccclass, property } = cc._decorator;
 
 
@@ -37,7 +38,16 @@ export default class Fish extends cc.Component {
     bezier7: cc.Vec2[] = [cc.p(100, 2), cc.p(350, -2), cc.p(1800, 0)];
     bezierArray = new Array();
 
+
+    fragStr: string = null;
+    program: cc.GLProgram;
+    startTime:number = Date.now();
+    time: number = 0;
+
     init(game: Game) {
+        // shader字符串
+        this.fragStr = Fluxay.fluxay_frag_super;
+
         this.bezierArray.push(this.bezier1);
         this.bezierArray.push(this.bezier2);
         this.bezierArray.push(this.bezier3);
@@ -77,6 +87,8 @@ export default class Fish extends cc.Component {
         this.lastPosition = this.node.getPosition();
         this.changeCollider();
         this.swimming(bezier);
+        // 使用着色器
+        this.userWater();
     }
 
     // 重新设置碰撞区域
@@ -99,6 +111,7 @@ export default class Fish extends cc.Component {
 
     update(dt) {
         this.updateDegree();
+        this.updateShader();
     }
 
     // 更新鱼的角度
@@ -180,5 +193,53 @@ export default class Fish extends cc.Component {
             this.fishState = FishState.dead;
         }
         
+    }
+
+    updateShader() {
+        this.time = (Date.now() - this.startTime) / 1000;
+        if (this.program) {
+            this.program.use();
+            if (cc.sys.isNative) {
+                var glProgram_state = cc.GLProgramState.getOrCreateWithGLProgram(this.program);
+                glProgram_state.setUniformFloat("time", this.time);
+            } else {
+                let ct = this.program.getUniformLocationForName("time");
+                this.program.setUniformLocationWith1f(ct, this.time);
+            }
+        }
+    }
+
+
+    userWater() {
+        this.program = new cc.GLProgram();
+        if (cc.sys.isNative) {
+            this.program.initWithString(Fluxay.fluxay_vert, this.fragStr);
+        } else {
+            this.program.initWithVertexShaderByteArray(Fluxay.fluxay_vert, this.fragStr);
+            this.program.addAttribute(cc.macro.ATTRIBUTE_NAME_POSITION, cc.macro.VERTEX_ATTRIB_POSITION);
+            this.program.addAttribute(cc.macro.ATTRIBUTE_NAME_COLOR, cc.macro.VERTEX_ATTRIB_COLOR);
+            this.program.addAttribute(cc.macro.ATTRIBUTE_NAME_TEX_COORD, cc.macro.VERTEX_ATTRIB_TEX_COORDS);
+        }
+        this.program.link();
+        this.program.updateUniforms();
+        this.program.use();
+
+        if (cc.sys.isNative) {
+            var glProgram_state = cc.GLProgramState.getOrCreateWithGLProgram(this.program);
+            glProgram_state.setUniformFloat("time", this.time);
+        } else {
+            let ba = this.program.getUniformLocationForName("time");
+            this.program.setUniformLocationWith1f(ba, this.time);
+        }
+        this.setProgram(this.node.getComponent(cc.Sprite)._sgNode, this.program);
+    }
+
+    setProgram(node: any, program: any) {
+        if (cc.sys.isNative) {
+            var glProgram_state = cc.GLProgramState.getOrCreateWithGLProgram(program);
+            node.setGLProgramState(glProgram_state);
+        } else {
+            node.setShaderProgram(program);
+        }
     }
 }
