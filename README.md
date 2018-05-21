@@ -1,6 +1,27 @@
 # 捕鱼达人
 ## cocos creator 写的捕鱼达人，基本已经完成，还差一些细节
-### 即将放出自定义 shader 的开源项目，敬请期待
+### cocos creator自定义shader的开源项目已完成。
+---
+
+项目地址：[creator自定义shader](https://github.com/fylz1125/ShaderDemos)
+
+### 内容简介：
+
+- 溶解消失特效
+
+- 灰度图
+
+- 流光和闪光特效
+
+- 高斯模糊
+
+- 图片渐变切换
+
+- 动态水波特效
+
+- 战争迷雾（探照灯）特效
+
+----
 
 
 ### 开发工具
@@ -10,6 +31,8 @@
 - 脚本：Typescript
 
 ### Q讨论群（大游戏）：704391772
+
+### QQ群为收费进群，￥5 进群，☺
 ### 扫二维码进群：
 ![Q群704391772](screenshots/qqgroup.JPG)
 
@@ -61,7 +84,7 @@
 
 - 自定义shader实现水波特效
 
-# 即将放出自定义 shader 的开源项目，赶紧关注一波
+# cocos creator 自定义shader项目已经开发完毕<br>内置7个常用效果器和20个小demo<br>项目地址：[creator自定义shader](https://github.com/fylz1125/ShaderDemos)
 
 # 如果对你有帮助，请打赏一下
 <div align="center">
