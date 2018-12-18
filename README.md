@@ -32,7 +32,7 @@
 
 ### Q讨论群（大游戏）：704391772
 
-### QQ群为收费进群，￥5 进群，☺
+### QQ群已升级千人大群，欢迎大家讨论交流 ☺
 ### 扫二维码进群：
 ![Q群704391772](screenshots/qqgroup.JPG)
 
@@ -44,7 +44,7 @@
 
 代码经过多次重构，虽然目前还没有完全完善，但是已经十分清晰易懂。
 
-后续配合本人的视频教程，理论上一个礼拜就可以完全掌握cocos creator引擎。
+视频教程正在制作中，采用2.0.6版本引擎讲解制作，希望能帮助新手快速入门
 
 
 ## 先看效果
@@ -86,11 +86,5 @@
 
 # cocos creator 自定义shader项目已经开发完毕<br>内置7个常用效果器和20个小demo<br>项目地址：[creator自定义shader](https://github.com/fylz1125/ShaderDemos)
 
-# 如果对你有帮助，请打赏一下
-<div align="center">
-<img src="screenshots/alipay2.jpg">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="screenshots/wechatpay2.jpg">
-</div>
-
+# 干掉了5块钱的打赏，有需要的话进群，买我的视频课程支持一下就好。
 
