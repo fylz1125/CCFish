@@ -1,32 +1,10 @@
 # 捕鱼达人
-## cocos creator 写的捕鱼达人，基本已经完成，还差一些细节
-### cocos creator自定义shader的开源项目已完成。
+## 2.0版引擎，TS实现
 ---
-
-项目地址：[creator自定义shader](https://github.com/fylz1125/ShaderDemos)
-
-### 内容简介：
-
-- 溶解消失特效
-
-- 灰度图
-
-- 流光和闪光特效
-
-- 高斯模糊
-
-- 图片渐变切换
-
-- 动态水波特效
-
-- 战争迷雾（探照灯）特效
-
-----
-
 
 ### 开发工具
 
-- cocos creator v1.8.2
+- cocos creator v2.0.6
 - vscode v1.22.2
 - 脚本：Typescript
 
