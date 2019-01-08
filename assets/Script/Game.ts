@@ -67,13 +67,13 @@ export default class Game extends cc.Component {
         // 设置zorder，控制显示层级
         // 背景在最下层，最上层是炮台
         // 中间层是鱼
-        cc.find('Canvas/game_bg').setLocalZOrder(-1);
-        cc.find('Canvas/bottomBar').setLocalZOrder(1);
-        this.gameOverNode.setLocalZOrder(2);
+        cc.find('Canvas/game_bg').zIndex = -1;
+        cc.find('Canvas/bottomBar').zIndex = 1;
+        this.gameOverNode.zIndex = 2;
         this.gameOverNode.active = false;
 
         let self = this;
-        cc.director.setDisplayStats(true);
+        cc.debug.setDisplayStats(true);
         // 动态加载json配置文件
         cc.loader.loadRes("fishconfig", function (err, data) {
             if (err) {
