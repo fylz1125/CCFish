@@ -1,11 +1,11 @@
 # 捕鱼达人
-## 2.0版引擎，TS实现
+## 2.0分支支持creator2.0大版本，TS版实现
 ---
 
 ### 开发工具
 
 - cocos creator v2.0.6
-- vscode v1.22.2
+- vscode v1.25.1
 - 脚本：Typescript
 
 ### Q讨论群（大游戏）：704391772
