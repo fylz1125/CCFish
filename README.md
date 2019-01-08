@@ -86,5 +86,5 @@
 
 # cocos creator 自定义shader项目已经开发完毕<br>内置7个常用效果器和20个小demo<br>项目地址：[creator自定义shader](https://github.com/fylz1125/ShaderDemos)
 
-# 干掉了5块钱的打赏，有需要的话进群，买我的视频课程支持一下就好。
+# 想要学习creator游戏开发的同学可以进群交流，即将上线大游戏开发平台，敬请期待。
 
