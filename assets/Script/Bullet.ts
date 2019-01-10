@@ -56,7 +56,7 @@ export default class Bullet extends cc.Component {
         // 矩形碰撞组件顶点坐标，左上，左下，右下，右上
         let posb = self.world.points;
         // 取左上和右上坐标计算中点当做碰撞中点
-        let posNet = cc.pMidpoint(posb[0], posb[3]);
+        let posNet = posb[0].add(posb[3]).mul(0.5);
         this.game.castNet(posNet);
         this.game.despawnBullet(this.node);
     }

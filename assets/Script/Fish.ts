@@ -38,16 +38,7 @@ export default class Fish extends cc.Component {
     bezier7: cc.Vec2[] = [cc.p(100, 2), cc.p(350, -2), cc.p(1800, 0)];
     bezierArray = new Array();
 
-
-    fragStr: string = null;
-    program: cc.GLProgram;
-    startTime:number = Date.now();
-    time: number = 0;
-
     init(game: Game) {
-        // shader字符串
-        this.fragStr = Fluxay.fluxay_frag_super;
-
         this.bezierArray.push(this.bezier1);
         this.bezierArray.push(this.bezier2);
         this.bezierArray.push(this.bezier3);
@@ -185,6 +176,7 @@ export default class Fish extends cc.Component {
     }
 
     onCollisionEnter(other, self) {
+        cc.log("collision ...");
         let bullet = <Bullet>other.node.getComponent(Bullet);
         this.hp -= bullet.getAttackValue();
         if (this.hp <= 0) {
