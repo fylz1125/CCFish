@@ -44,9 +44,9 @@ export default class Bullet extends cc.Component {
         this.node.x = bx;
         this.node.y = by;
 
-        if (this.node.x > cc.director.getWinSize().width + 100
+        if (this.node.x > cc.winSize.width + 100
             || this.node.x < -100
-            || this.node.y > cc.director.getWinSize().height + 100
+            || this.node.y > cc.winSize.height + 100
             || this.node.y < 0
         ) {
             this.game.despawnBullet(this.node);
