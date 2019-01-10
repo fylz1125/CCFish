@@ -35,6 +35,7 @@ export default class Game extends cc.Component {
 
     @property(cc.AudioClip)
     bgm: cc.AudioClip = null;    
+    
 
     oneFish: cc.Node;
     oneBullet: cc.Node;

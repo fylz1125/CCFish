@@ -89,7 +89,7 @@ export default class Fish extends cc.Component {
 
     // 小鱼游泳，贝塞尔曲线实现
     swimming(trace:any) {
-        let windowSize = cc.director.getWinSize();
+        let windowSize = cc.winSize;
         // var bezier = [cc.v2(100, -200), cc.v2(400, -500), cc.v2(1500, -600)];
         let speed = Math.random() * 10 + 10;
         let bezerby = cc.bezierBy(speed, trace);
