@@ -75,13 +75,13 @@ export default class Game extends cc.Component {
         let self = this;
         cc.debug.setDisplayStats(true);
         // 动态加载json配置文件
-        cc.loader.loadRes("fishconfig", function (err, data) {
+        cc.loader.loadRes("fishconfig", function (err, jsonAsset) {
             if (err) {
                 cc.error(err.message || err);
                 return;
             }
             // 加载之后转类型
-            self.fishTypes = <FishType[]>data;
+            self.fishTypes = <FishType[]>jsonAsset.json;
             self.schedule(self.creatFish, 2);
         });
 

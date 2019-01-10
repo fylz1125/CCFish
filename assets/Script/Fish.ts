@@ -63,12 +63,12 @@ export default class Fish extends cc.Component {
     // spawnFish(fishType:FishType) {
     spawnFish(game: Game) {
         let fishStr = game.fishTypes.length;
-        let randomFish = Math.floor(cc.random0To1() * fishStr);
+        let randomFish = Math.floor(Math.random() * fishStr);
         this.fishType = game.fishTypes[randomFish];
         // this.node.position = cc.p(-cc.random0To1()*100-200, cc.randomMinus1To1() * 300 + 350);
-        let pos = cc.p(-cc.random0To1() * 100-200, cc.randomMinus1To1() * 300 + 350);
+        let pos = cc.p(-Math.random() * 100-200, (Math.random()-0.5)* 2 * 300 + 350);
         this.node.position = cc.find('Canvas').convertToNodeSpaceAR(pos);
-        let index = Math.floor(cc.random0To1() * this.bezierArray.length);
+        let index = Math.floor(Math.random() * this.bezierArray.length);
         let bezier = this.bezierArray[index];
         // 贝塞尔曲线第一个控制点，用来计算初始角度
         let firstp = bezier[0];
@@ -87,8 +87,7 @@ export default class Fish extends cc.Component {
         this.lastPosition = this.node.getPosition();
         this.changeCollider();
         this.swimming(bezier);
-        // 使用着色器
-        this.userWater();
+
     }
 
     // 重新设置碰撞区域
@@ -101,7 +100,7 @@ export default class Fish extends cc.Component {
     swimming(trace:any) {
         let windowSize = cc.director.getWinSize();
         // var bezier = [cc.p(100, -200), cc.p(400, -500), cc.p(1500, -600)];
-        let speed = cc.random0To1() * 10 + 10;
+        let speed = Math.random() * 10 + 10;
         let bezerby = cc.bezierBy(speed, trace);
         this.node.runAction(bezerby);
     }
@@ -111,14 +110,13 @@ export default class Fish extends cc.Component {
 
     update(dt) {
         this.updateDegree();
-        this.updateShader();
     }
 
     // 更新鱼的角度
     updateDegree() {
         let currentPos = this.node.getPosition();
         // 如果位移不超过1，不改变角度
-        if (cc.pDistance(this.lastPosition, currentPos) < 1) {
+        if (this.lastPosition.sub(currentPos).mag() < 1) {
             return;
         }
 
@@ -195,51 +193,4 @@ export default class Fish extends cc.Component {
         
     }
 
-    updateShader() {
-        this.time = (Date.now() - this.startTime) / 1000;
-        if (this.program) {
-            this.program.use();
-            if (cc.sys.isNative) {
-                var glProgram_state = cc.GLProgramState.getOrCreateWithGLProgram(this.program);
-                glProgram_state.setUniformFloat("time", this.time);
-            } else {
-                let ct = this.program.getUniformLocationForName("time");
-                this.program.setUniformLocationWith1f(ct, this.time);
-            }
-        }
-    }
-
-
-    userWater() {
-        this.program = new cc.GLProgram();
-        if (cc.sys.isNative) {
-            this.program.initWithString(Fluxay.fluxay_vert, this.fragStr);
-        } else {
-            this.program.initWithVertexShaderByteArray(Fluxay.fluxay_vert, this.fragStr);
-            this.program.addAttribute(cc.macro.ATTRIBUTE_NAME_POSITION, cc.macro.VERTEX_ATTRIB_POSITION);
-            this.program.addAttribute(cc.macro.ATTRIBUTE_NAME_COLOR, cc.macro.VERTEX_ATTRIB_COLOR);
-            this.program.addAttribute(cc.macro.ATTRIBUTE_NAME_TEX_COORD, cc.macro.VERTEX_ATTRIB_TEX_COORDS);
-        }
-        this.program.link();
-        this.program.updateUniforms();
-        this.program.use();
-
-        if (cc.sys.isNative) {
-            var glProgram_state = cc.GLProgramState.getOrCreateWithGLProgram(this.program);
-            glProgram_state.setUniformFloat("time", this.time);
-        } else {
-            let ba = this.program.getUniformLocationForName("time");
-            this.program.setUniformLocationWith1f(ba, this.time);
-        }
-        this.setProgram(this.node.getComponent(cc.Sprite)._sgNode, this.program);
-    }
-
-    setProgram(node: any, program: any) {
-        if (cc.sys.isNative) {
-            var glProgram_state = cc.GLProgramState.getOrCreateWithGLProgram(program);
-            node.setGLProgramState(glProgram_state);
-        } else {
-            node.setShaderProgram(program);
-        }
-    }
 }
