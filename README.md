@@ -1,9 +1,8 @@
 # 捕鱼达人
-## cocos creator 写的捕鱼达人，基本已经完成，还差一些细节
-### cocos creator自定义shader的开源项目已完成。
----
+## cocos creator 2.0.6版本已经调试完成，查看2.0分支
+## github地址：https://github.com/fylz1125/CCFish/tree/2.0
+## gitee地址： https://gitee.com/darkmoon/ccfish/tree/2.0
 
-项目地址：[creator自定义shader](https://github.com/fylz1125/ShaderDemos)
 
 ### 内容简介：
 
