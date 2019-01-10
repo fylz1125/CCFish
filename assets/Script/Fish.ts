@@ -29,13 +29,13 @@ export default class Fish extends cc.Component {
     //暂存game实例
     game: Game;
 
-    bezier1: cc.Vec2[] = [cc.p(50, -100), cc.p(300, -400), cc.p(1800, -650)];
-    bezier2: cc.Vec2[] = [cc.p(100, -200), cc.p(400, -300), cc.p(1800, -600)];
-    bezier3: cc.Vec2[] = [cc.p(150, -300), cc.p(600, -400), cc.p(1800, -500)];
-    bezier4: cc.Vec2[] = [cc.p(50, 50), cc.p(400, 100), cc.p(1800, 200)];
-    bezier5: cc.Vec2[] = [cc.p(80, 200), cc.p(300, 500), cc.p(1800, 650)];
-    bezier6: cc.Vec2[] = [cc.p(100, 100), cc.p(350, 400), cc.p(1800, 500)];
-    bezier7: cc.Vec2[] = [cc.p(100, 2), cc.p(350, -2), cc.p(1800, 0)];
+    bezier1: cc.Vec2[] = [cc.v2(50, -100), cc.v2(300, -400), cc.v2(1800, -650)];
+    bezier2: cc.Vec2[] = [cc.v2(100, -200), cc.v2(400, -300), cc.v2(1800, -600)];
+    bezier3: cc.Vec2[] = [cc.v2(150, -300), cc.v2(600, -400), cc.v2(1800, -500)];
+    bezier4: cc.Vec2[] = [cc.v2(50, 50), cc.v2(400, 100), cc.v2(1800, 200)];
+    bezier5: cc.Vec2[] = [cc.v2(80, 200), cc.v2(300, 500), cc.v2(1800, 650)];
+    bezier6: cc.Vec2[] = [cc.v2(100, 100), cc.v2(350, 400), cc.v2(1800, 500)];
+    bezier7: cc.Vec2[] = [cc.v2(100, 2), cc.v2(350, -2), cc.v2(1800, 0)];
     bezierArray = new Array();
 
     init(game: Game) {
@@ -56,8 +56,8 @@ export default class Fish extends cc.Component {
         let fishStr = game.fishTypes.length;
         let randomFish = Math.floor(Math.random() * fishStr);
         this.fishType = game.fishTypes[randomFish];
-        // this.node.position = cc.p(-cc.random0To1()*100-200, cc.randomMinus1To1() * 300 + 350);
-        let pos = cc.p(-Math.random() * 100-200, (Math.random()-0.5)* 2 * 300 + 350);
+        // this.node.position = cc.v2(-cc.random0To1()*100-200, cc.randomMinus1To1() * 300 + 350);
+        let pos = cc.v2(-Math.random() * 100-200, (Math.random()-0.5)* 2 * 300 + 350);
         this.node.position = cc.find('Canvas').convertToNodeSpaceAR(pos);
         let index = Math.floor(Math.random() * this.bezierArray.length);
         let bezier = this.bezierArray[index];
@@ -90,7 +90,7 @@ export default class Fish extends cc.Component {
     // 小鱼游泳，贝塞尔曲线实现
     swimming(trace:any) {
         let windowSize = cc.director.getWinSize();
-        // var bezier = [cc.p(100, -200), cc.p(400, -500), cc.p(1500, -600)];
+        // var bezier = [cc.v2(100, -200), cc.v2(400, -500), cc.v2(1500, -600)];
         let speed = Math.random() * 10 + 10;
         let bezerby = cc.bezierBy(speed, trace);
         this.node.runAction(bezerby);

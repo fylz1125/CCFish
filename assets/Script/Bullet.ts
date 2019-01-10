@@ -24,7 +24,7 @@ export default class Bullet extends cc.Component {
         let weaponSite = game.weaponNode.parent.convertToWorldSpaceAR(game.weaponNode.getPosition());
         this.angle = game.weaponNode.rotation;
         this.node.rotation = this.angle;
-        let bpos = cc.p(weaponSite.x + 50 * Math.sin(this.angle / 180 * 3.14), weaponSite.y + 50 * Math.cos(this.angle / 180 * 3.14));
+        let bpos = cc.v2(weaponSite.x + 50 * Math.sin(this.angle / 180 * 3.14), weaponSite.y + 50 * Math.cos(this.angle / 180 * 3.14));
         this.setBullet(level);
         this.node.position = bpos;
         this.node.parent = cc.director.getScene();
