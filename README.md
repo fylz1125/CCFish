@@ -1,7 +1,5 @@
 # 捕鱼达人
-## cocos creator 2.0.6版本已经调试完成，查看2.0分支
-## github地址：https://github.com/fylz1125/CCFish/tree/2.0
-## gitee地址： https://gitee.com/darkmoon/ccfish/tree/2.0
+## cocos creator 1.93版本已经调试完成
 
 
 ### 内容简介：
