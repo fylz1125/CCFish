@@ -1,5 +1,7 @@
 # 捕鱼达人
-## 2.0分支支持creator2.0大版本，TS版实现
+## 支持到creator2.0.6大版本，TS版实现
+## gitee地址：https://gitee.com/darkmoon/ccfish
+## github地址：https://github.com/fylz1125/CCFish
 ---
 
 ### 开发工具
