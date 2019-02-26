@@ -1,5 +1,5 @@
 # 捕鱼达人-Creator 1.93 TS版
-## `每晚 21:00`，我在腾讯课堂直播Creator游戏开发技术和实战经验，欢迎大家关注我的课程。
+## 每晚 21:00，我在腾讯课堂直播Creator游戏开发技术和实战经验，欢迎大家关注我的课程。
 
 ## **直播地址：** [https://ke.qq.com/course/378768?tuin=3ce6693](https://ke.qq.com/course/378768?tuin=3ce6693)
 
