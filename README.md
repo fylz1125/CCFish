@@ -1,7 +1,8 @@
-# 捕鱼达人
-## 支持到creator2.0.6大版本，TS版实现
-## gitee地址：https://gitee.com/darkmoon/ccfish
-## github地址：https://github.com/fylz1125/CCFish
+# 捕鱼达人-Creator2.0.6版TS实现
+
+## 每晚21:00，我在腾讯课堂直播分享Creator游戏开发技术，欢迎大家关注我的课程。
+## 腾讯直播地址：[https://ke.qq.com/course/378768?tuin=3ce6693](https://ke.qq.com/course/378768?tuin=3ce6693)
+
 ---
 
 ### 开发工具
@@ -66,5 +67,6 @@
 
 # cocos creator 自定义shader项目已经开发完毕<br>内置7个常用效果器和20个小demo<br>项目地址：[creator自定义shader](https://github.com/fylz1125/ShaderDemos)
 
-# 想要学习creator游戏开发的同学可以进群交流，即将上线大游戏开发平台，敬请期待。
+## gitee地址：https://gitee.com/darkmoon/ccfish
+## github地址：https://github.com/fylz1125/CCFish
 
