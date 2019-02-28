@@ -46,7 +46,7 @@ export default class Game extends cc.Component {
     netsPool: cc.NodePool;
 
     onLoad() {
-        cc.audioEngine.playMusic(this.bgm, true);
+        // cc.audioEngine.playMusic(this.bgm, true);
 
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;

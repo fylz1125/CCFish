@@ -137,7 +137,7 @@ export default class Fish extends cc.Component {
             //播放死亡动画
             let animState = this.anim.play(this.fishType.name + '_die');
             // 被打死的动画播放完成之后回调
-            animState.on('stop', this.dieCallback, this);
+            animState.on('finished', this.dieCallback, this);
             // 播放金币动画
             // 转为世界坐标
             let fp = this.node.parent.convertToWorldSpaceAR(this.node.position);
@@ -150,6 +150,7 @@ export default class Fish extends cc.Component {
 
     dieCallback() {
         // 死亡动画播放完回收鱼
+        cc.log('fish die');
         this.node.stopAllActions();
         this.game.despawnFish(this.node);
     }
