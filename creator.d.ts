@@ -2234,7 +2234,8 @@ declare namespace cc {
 	!#zh
 	AnimationState 完全控制动画播放过程。<br/>
 	大多数情况下 动画组件 是足够和易于使用的。如果您需要更多的动画控制接口，请使用 AnimationState。 */
-	export class AnimationState extends Playable {		
+	export class AnimationState extends Playable {	
+		
 		/**
 		
 		@param clip clip
@@ -2281,6 +2282,14 @@ declare namespace cc {
 		/** !#en The name of the playing animation.
 		!#zh 动画的名字 */
 		name: string;	
+		/**
+		 * 对单个cc.AnimationState注册回调
+		 * @param type 内置事件名称
+		 * @param callback 回调函数
+		 * @param target 
+		 * @param useCapture 
+		 */
+		on(type: string, callback: (event: Event.EventCustom) => void, target?: any, useCapture?: boolean): (event: Event.EventCustom) => void;
 	}	
 	/** undefined */
 	export class Playable {		
