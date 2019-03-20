@@ -68,7 +68,7 @@ export default class Game extends cc.Component {
         // 设置zorder，控制显示层级
         // 背景在最下层，最上层是炮台
         // 中间层是鱼
-        cc.find('Canvas/game_bg').zIndex = -1;
+        cc.find('Canvas/gameBg').zIndex = -1;
         cc.find('Canvas/bottomBar').zIndex = 1;
         this.gameOverNode.zIndex = 2;
         this.gameOverNode.active = false;
