@@ -90,12 +90,17 @@ export default class Game extends cc.Component {
 
         // 添加触摸事件
         this.node.on(cc.Node.EventType.TOUCH_START, function (event: cc.Event.EventTouch) { 
-            //需要将触点坐标转换成局部坐标，跟炮台一致
+            // 触点是世界坐标，需要转换为和炮台一致的坐标系下
             let touchPos = self.weaponNode.parent.convertTouchToNodeSpaceAR(event.touch);
+            // 炮台坐标
             let weaponPos = self.weaponNode.getPosition();
-            if (touchPos.y < weaponPos.y) return;
-            let radian = Math.atan((touchPos.x - weaponPos.x) / (touchPos.y - weaponPos.y));
-            let degree = radian * 180 / 3.14;
+            // 炮台到触点的方向向量
+            let dir = touchPos.sub(weaponPos);
+            // 计算夹角，这个夹角是带方向的
+            let angle = dir.signAngle(cc.v2(0, 1));
+            //将弧度转换为欧拉角
+            let degree = angle / Math.PI * 180;
+            // 设置炮台角度
             self.weaponNode.rotation = degree;
             let bulletLevel = self.weaponNode.getComponent(Weapon).curLevel;
             self.shot(bulletLevel);
