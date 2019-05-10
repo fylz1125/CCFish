@@ -1,5 +1,5 @@
 import Game from './Game';
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class Bullet extends cc.Component {
@@ -13,7 +13,7 @@ export default class Bullet extends cc.Component {
 
     // 子弹速度
     @property
-    speed: number = 10;  
+    speed: number = 10;
 
     bulletLeve: number = 1;
 
@@ -61,7 +61,7 @@ export default class Bullet extends cc.Component {
         this.game.despawnBullet(this.node);
     }
 
-    getAttackValue():number {
+    getAttackValue(): number {
         return this.attack * this.bulletLeve;
     }
 }
