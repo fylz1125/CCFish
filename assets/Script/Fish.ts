@@ -100,36 +100,27 @@ export default class Fish extends cc.Component {
     }
 
     update(dt) {
+        // this.updateDegree();
         this.updateDegree();
     }
 
-    // 更新鱼的角度
     updateDegree() {
         let currentPos = this.node.getPosition();
         // 如果位移不超过1，不改变角度
         if (this.lastPosition.sub(currentPos).mag() < 1) {
             return;
         }
-
-        // 计算角度
-        let degree;
-        if (currentPos.x - this.lastPosition.x == 0) {
-            // 垂直
-            if (currentPos.y - this.lastPosition.y > 0) {
-                degree = -90;
-            } else {
-                degree = 90;
-            }
-        } else {
-            degree = - Math.atan((currentPos.y - this.lastPosition.y) / (currentPos.x - this.lastPosition.x)) * 180 / 3.14;
-        }
+        // 移动的方向向量
+        let dir = currentPos.sub(this.lastPosition);
+        // 求角度
+        let angle = dir.signAngle(cc.v2(1, 0));
+        // 转为欧拉角
+        let degree = angle / Math.PI * 180;
         this.node.rotation = degree;
         this.lastPosition = currentPos;
-        // this.despawnFish();
         this.beAttack();
-
     }
-
+    
     beAttack() {
         if (this.isDie()) {
             // 停止贝塞尔曲线动作
