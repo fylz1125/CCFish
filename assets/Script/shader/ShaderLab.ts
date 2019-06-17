@@ -1,14 +1,18 @@
 
 const MVP = `
 uniform mat4 viewProj;
+uniform mat4 model;
 attribute vec3 a_position;
 attribute vec2 a_uv0;
 varying vec2 uv0;
 void main () {
-    vec4 pos = viewProj * vec4(a_position, 1);
+    mat4 mvp;
+    mvp = viewProj * model;
+    vec4 pos = mvp * vec4(a_position, 1);
     gl_Position = pos;
     uv0 = a_uv0;
-}`;
+}
+`;
 
 const ShaderLab = {
     GrayScaling: {
@@ -333,7 +337,7 @@ void main () {
 
 uniform sampler2D texture;
 uniform float time;
-uniform vec2 resolution;
+uniform vec3 resolution;
 varying vec2 uv0;
 
 vec2 s(vec2 p)
