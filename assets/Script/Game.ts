@@ -33,7 +33,9 @@ export default class Game extends cc.Component {
     @property(cc.Node)
     gameOverNode: cc.Node = null;
 
-    @property(cc.AudioClip)
+    @property({
+        type:cc.AudioClip
+    })
     bgm: cc.AudioClip = null;    
     
 
