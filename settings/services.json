@@ -128,5 +128,9 @@
 			"packpage_version_desc": "",
 			"service_protocol": "游戏首次开启该服务时，Cocos会后台通知服务方为游戏开通服务并初始化参数，服务方根据需要可能会获取您的Cocos账户信息，包括账户基本资料、游戏基本资料、账户余额等，点击确认开通按钮即视为您同意该服务访问您的账户信息，详见<a href='http://auth.cocos.com/CocosServiceAgreement.html'>《Cocos用户服务协议》</a>和<a href='http://auth.cocos.com/PrivacyPolicy.html'>《Cocos隐私政策》</a>"
 		}
-	]
+	],
+	"game": {
+		"name": "未知游戏",
+		"appid": "UNKNOW"
+	}
 }
