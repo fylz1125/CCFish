@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-18 22:20:56
+ * @LastEditTime: 2020-02-17 18:34:37
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \CourseFishd:\cocos20\CCFish\assets\Script\Bullet.ts
+ */
 import Game from './Game';
 const { ccclass, property } = cc._decorator;
 
@@ -22,8 +30,8 @@ export default class Bullet extends cc.Component {
         // 启动update函数
         this.enabled = true;
         let weaponSite = game.weaponNode.parent.convertToWorldSpaceAR(game.weaponNode.getPosition());
-        this.angle = game.weaponNode.rotation;
-        this.node.rotation = this.angle;
+        this.angle = -game.weaponNode.angle;
+        this.node.angle = -this.angle;
         let bpos = cc.v2(weaponSite.x + 50 * Math.sin(this.angle / 180 * 3.14), weaponSite.y + 50 * Math.cos(this.angle / 180 * 3.14));
         this.setBullet(level);
         this.node.position = bpos;

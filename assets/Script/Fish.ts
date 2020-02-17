@@ -64,7 +64,7 @@ export default class Fish extends cc.Component {
         // 贝塞尔曲线第一个控制点，用来计算初始角度
         let firstp = bezier[0];
         let k = Math.atan((firstp.y) / (firstp.x));
-        this.node.rotation = -k * 180 / 3.14;
+        this.node.angle = -k * 180 / 3.14;
         this.node.getComponent(cc.Sprite).spriteFrame = this.game.spAtlas.getSpriteFrame(this.fishType.name + '_run_0');
         // 取出鱼的血量
         this.hp = this.fishType.hp;
@@ -113,10 +113,10 @@ export default class Fish extends cc.Component {
         // 移动的方向向量
         let dir = currentPos.sub(this.lastPosition);
         // 求角度
-        let angle = dir.signAngle(cc.v2(1, 0));
+        let angle = cc.v2(dir).signAngle(cc.v2(1, 0))// dir.signAngle(cc.v2(1, 0));
         // 转为欧拉角
         let degree = angle / Math.PI * 180;
-        this.node.rotation = degree;
+        this.node.angle = -degree;
         this.lastPosition = currentPos;
         this.beAttack();
     }

@@ -48,7 +48,7 @@ export default class Game extends cc.Component {
     netsPool: cc.NodePool;
 
     onLoad() {
-        // cc.audioEngine.playMusic(this.bgm, true);
+        cc.audioEngine.playMusic(this.bgm, true);
 
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;
@@ -93,7 +93,7 @@ export default class Game extends cc.Component {
         // 添加触摸事件
         this.node.on(cc.Node.EventType.TOUCH_START, function (event: cc.Event.EventTouch) { 
             // 触点是世界坐标，需要转换为和炮台一致的坐标系下
-            let touchPos = self.weaponNode.parent.convertTouchToNodeSpaceAR(event.touch);
+            let touchPos = self.weaponNode.parent.convertToNodeSpaceAR(event.getLocation());
             // 炮台坐标
             let weaponPos = self.weaponNode.getPosition();
             // 炮台到触点的方向向量
@@ -103,7 +103,7 @@ export default class Game extends cc.Component {
             //将弧度转换为欧拉角
             let degree = angle / Math.PI * 180;
             // 设置炮台角度
-            self.weaponNode.rotation = degree;
+            self.weaponNode.angle = -degree;
             let bulletLevel = self.weaponNode.getComponent(Weapon).curLevel;
             self.shot(bulletLevel);
         }, this);
