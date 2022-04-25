@@ -71,7 +71,7 @@ CCProgram fs %{
     // 纹理尺寸（宽 x 高）（px）
     vec2 resolution;
     float time;
-  }
+  };
 
   vec2 s(vec2 p){
     float d = time*0.2;
